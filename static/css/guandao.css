@@ -1,0 +1,147 @@
+/*设置*/
+.red{color:#ff5d38;}
+.fs11{font-size:11px;}
+.fs12{font-size:12px;}
+.fs13{font-size:13px;}
+.fs14{font-size:14px;}
+.fs15{font-size:15px;}
+.fs16{font-size:16px;}
+.fs18{font-size:18px;}
+.fs30{font-size:30px;}
+.lh44{line-height: 44px;}
+.hig49{height:49px;}
+.hig44{height:44px;}
+.hig80{height:80px;}
+.ba{background-color:#ffffff;}
+.bc{background-color:#f0f0f0;}
+.lh200{line-height:200%;}
+.coc{color:#cccccc;}
+.co9{color:#999999;}
+.co6{color:#666666;}
+.white{color:#ffffff;}
+.ptb18{padding-top:18px;padding-bottom:18px;}
+.bb{border-bottom:0.5px solid #eeeeee;}
+.b-b{border-top:0.5px solid #dedede;}
+.lh50{line-height:50px;}
+.p-a{position:absolute;}
+.p-r{position:relative;}
+.pt4{padding-top:4px;}
+.pb2{padding-bottom:2px;}
+.xxx:after{
+	display: inline-block;
+	width:0;
+	height:100%;
+	vertical-align:middle;
+	content: "";
+}
+.black{color:#000000;}
+.but{line-height:40px;background-color:#ff5d38;color:#ffffff;border-radius:6px;}
+.more{width:8px; position: absolute;right: 10px;top: 50%;margin-top: -7.5px;}
+
+/*首页*/
+.icon{height:20px;}
+.re-turn{background:url(../images/%E6%AF%8F%E6%97%A5%E7%AD%BE%E5%88%B0%EF%BC%8D%E8%BF%94%E5%9B%9E@2x.png) no-repeat 10px center;background-size:9px;}
+.city{left: 15px;}
+.banner{height:175px;}
+.icon-two{height:28px;}
+.news{height:65px;width:80px;}
+.news-box{left: 0;padding-left:110px;width: 100%;}
+.news-time{position: absolute;bottom: 15px;}
+.ptb7{padding-top:7px;padding-bottom:7px;}
+
+/*账号安全*/
+.head-img{width:44px;position: absolute;right: 28px;top: 50%;margin-top: -22px;}
+.lh60{line-height:60px;}
+.coc{color:#cccccc;}
+.co9{color:#999999;}
+.co6{color:#666666;}
+.wid{width:90px;}
+.pl80{padding-left:80px;}
+
+/*我的积分*/
+.point{ width:100% ; color:#ffffff; background:url(../images/%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87@2x.png) no-repeat center;  }
+.hig54{height:54px;}
+.lh54{line-height:54px;}
+.yellow{color:#ffcc00;}
+
+
+/*修改手机号码*/
+.delete{width:20px; position: absolute;right: 10px;top: 50%;margin-top: -10px;}
+.gain{width:75px;height:30px;background:#ff5d38;border-radius:3px;line-height: 30px;float: right;margin-top: 10px;
+margin-right: 10px;color:#ffffff;}
+
+/*需求大厅*/
+.com-img{height:180px;}
+.Then-live{width:80px;background-color:#ff5d38;color:#ffffff; border-radius:3px;
+    right: 0;
+    bottom: 0;
+    margin-right: 15px;
+    margin-bottom: 12px;}
+.lh27{line-height:27px;}
+
+/*开始找活*/
+.add{width:80px;position: fixed;bottom: 94px;left: 50%;margin-left: -40px;}
+.lh40{line-height:40px;}
+.b-ad{border-radius:3px;}
+.one{color:white;background:url(../images/%E6%B0%B4%E7%AE%A1-%E7%99%BD%E8%89%B2@2x.png) no-repeat left center;background-size:16px;;padding-left:26px;}
+.back-red{background-color:#ff5d38;}
+.two{color:white;background:url(../images/%E6%9A%96%E6%B0%94%E7%99%BD%E8%89%B2@2x.png) no-repeat left center;background-size:16px;;padding-left:26px;}
+.three{color:white;background:url(../images/%E7%94%B5%E7%BA%BF%E7%99%BD%E8%89%B2@2x.png) no-repeat left center;background-size:16px;;padding-left:26px;}
+.four{background:url(../images/%E7%81%AF%E5%85%B7%E7%81%B0%E8%89%B2@2x.png) no-repeat left center;background-size:16px;;padding-left:26px;}
+.five{background:url(../images/%E6%B0%B4%E6%9A%96%E6%B0%94%E7%81%B0%E8%89%B2@2x.png) no-repeat left center;background-size:16px;;padding-left:26px;}
+.six{background:url(../images/%E5%BC%80%E5%85%B3-%E7%81%B0%E8%89%B2@2x.png) no-repeat left center;background-size:16px;;padding-left:26px;}
+
+/*开始找活2*/
+.seven{background:url(../images/%E6%B0%B4%E7%94%B5%E5%85%A8%E5%8C%85@2x.png) no-repeat left center;background-size:16px;;padding-left:26px;}
+
+
+/*我的订单*/
+.order{border-bottom:2px  solid #ff5d38;}
+.hig40{height:40px;}
+.hig50{height:50px;}
+.order-img{height:82px;width:100px;}
+.hig120{height:120px;}
+.ptb19{padding-top:19px;padding-bottom:19px;}
+.order-box{left: 0;padding-left:130px;width: 100%;}
+.order-price{position: absolute;bottom: 12px;}
+.pt14{padding-top:14px;}
+
+/*经销商信息*/
+.shop{width:50px;height:50px;}
+.hig90{height:90px;}
+.lh90{line-height:90px;}
+.adr{    left: 0;padding-left: 95px}
+.ic-on{height:30px;}
+.ic{width:32px}
+
+/*我的*/
+.want{background:url(../images/%E8%AE%A2%E5%8D%95@2x.png) no-repeat left center; background-size:15px;padding-left:25px;}
+.car{background:url(../images/%E8%B4%AD%E7%89%A9%E8%BD%A6@2x.png) no-repeat left center; background-size:15px;padding-left:25px;}
+.jifen{background:url(../images/%E7%A7%AF%E5%88%86@2x.png) no-repeat left center; background-size:15px;padding-left:25px;}
+.xinxi{background:url(../images/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF@2x.png) no-repeat left center; background-size:15px;padding-left:25px;}
+.gengduo{background:url(../images/%E6%9B%B4%E3%80%82%E5%A4%9A@2x.png) no-repeat left center; background-size:15px;padding-left:25px;}
+
+/*完善个人信息*/
+.man{background:url(../images/%E9%80%89.--%E4%B8%AD@2x.png) no-repeat left center;background-size:22px;padding-left:36px}
+.woman{background:url(../images/_%E6%9C%AA@2x.png) no-repeat left center;background-size:22px;padding-left:36px}
+.pl100{padding-left:100px;}
+.pr24{padding-right:24px;}
+
+
+/*投诉反馈*/
+.text-h{height:130px;}
+.a-rea{background-color:transparent;}
+.pt8{padding-top:8px;}
+.cancel{width:74px;height:32px;border:1px solid #ff5d38;border-radius:3px;right:15px;background-color: #fff;}
+.pt9{padding-top:9px}
+
+
+
+/*地址选择*/
+.choo{width:20px;}
+
+.hig90{height:90px;}
+
+/*地址新增*/
+.pl100{padding-left:100px;}
+.mt120{margin-top:120px;}

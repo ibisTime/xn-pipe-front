@@ -1,0 +1,15 @@
+{{#each items}}
+    <div class="item-2-wrap">
+        <a href="./buy.html?code={{code}}" class="wp100 show">
+            <div class="mall-item-inner-wrap">
+                <div class="mall-item-top">
+                    <img src="{{formatNoSuffixImage advPic}}" class="center-img">
+                </div>
+                <div class="mall-item-bottom">
+                    <div class="mall-item-bottom-header">{{name}}</div>
+                    <div><span class="mall-jf-font">{{formatZeroMoney price1}}</span>积分</div>
+                </div>
+            </div>
+        </a>
+    </div>
+{{/each}}
