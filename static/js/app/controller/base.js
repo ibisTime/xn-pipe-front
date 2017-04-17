@@ -2,8 +2,11 @@ define([
     'jquery',
     'app/util/ajax',
     'app/util/dialog',
-    'app/module/loading/loading'
-], function($, Ajax, dialog, loading) {
+    'app/module/loading/loading',
+    'app/module/login/login',
+    'app/module/bindMobile/bindMobile'
+], function($, Ajax, dialog, loading, login, BindMobile) {
+	var userMobile;
 
     if (Number.prototype.toFixed) {
         var ori_toFixed = Number.prototype.toFixed;
@@ -15,7 +18,7 @@ define([
             return num;
         }
     }
-
+    
     String.prototype.temp = function(obj) {
         return this.replace(/\$\w+\$/gi, function(matchs) {
             var returns = obj[matchs.replace(/\$/g, "")];
@@ -94,6 +97,7 @@ define([
                     sessionStorage.setItem("dw-area", area);
                     sessionStorage.setItem("dw-longitude", longitude);
                     sessionStorage.setItem("dw-latitude", latitude);
+//                  sessionStorage.setItem("dw-address", address);
                     //直辖市
                     if(area == ""){
                         area = city;
@@ -105,6 +109,7 @@ define([
                     sessionStorage.setItem("area", area);
                     sessionStorage.setItem("longitude", longitude);
                     sessionStorage.setItem("latitude", latitude);
+//                  sessionStorage.setItem("address", address);
 
                     initFun(citylist);
                 }
@@ -132,6 +137,9 @@ define([
         getImg: function(pic){
             return pic ? (PIC_PREFIX + pic + THUMBNAIL_SUFFIX) : "";
         },
+        getImg1: function(pic){
+            return pic ? (PIC_PREFIX + pic + THUMBNAIL_SUFFISTORE) : "";
+        },
         getUrlParam: function(name, locat) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
             var r = (locat || window.location.search).substr(1).match(reg);
@@ -151,7 +159,11 @@ define([
             }
         },
         formatMoney: function(s, t) {
-            return $.isNumeric(s) ? (+s / 1000).toFixed(t || 2) : "--";
+            if(!$.isNumeric(s))
+                return "--";
+            var num = +s / 1000;
+            num = (num+"").replace(/^(\d+\.\d\d)\d*/i, "$1");
+            return (+num).toFixed(t || 2);
         },
         fZeroMoney: function(s) {
             if(!$.isNumeric(s))
@@ -220,6 +232,15 @@ define([
             }
             if(!/^http/i.test(pic)){
                 pic = PIC_PREFIX + pic + (suffix || THUMBNAIL_SUFFIX);
+            }
+            return pic;
+        },
+        getBannerPic: function(pic, suffix){
+            if(pic){
+                pic = pic.split(/\|\|/)[0];
+            }
+            if(!/^http/i.test(pic)){
+                pic = PIC_PREFIX + pic + (suffix || THUMBNAIL_SUFFIN);
             }
             return pic;
         },
@@ -351,7 +372,7 @@ define([
             var rUrl = Base.getUrlParam("return");
             if(isLoginBack){
                 var returnUrl = sessionStorage.getItem("l-return");
-                sessionStorage.removeItem("l-return");
+                // sessionStorage.removeItem("l-return");
                 location.href = returnUrl || url || "../user/user.html";
             }else{
                 if (rUrl) {
@@ -361,6 +382,9 @@ define([
                 }
             }
             
+        },
+        goBack: function() {
+            window.history.back();
         },
         addIcon: function() {
             var icon = sessionStorage.getItem("icon");
@@ -383,6 +407,94 @@ define([
                 }, function(res){
                     return res;
                 });
+        },
+        getUserInfo: function(n){
+        	BindMobile.addMobileCont({
+	            success: function(res) {
+	            	userMobile = res;
+	            },
+	            hideFn: function() {
+	            },
+	            error: function(msg) {
+	                base.showMsg(msg);
+	            }
+	        });
+        	return Ajax.get("805056", {
+               		userId: Base.getUserId()
+            	}, false)
+					.then(function(res){
+						if(res.success){
+							if(!res.data.mobile && !userMobile){
+								
+								BindMobile.showMobileCont()
+								
+		                    }else if(res.data.userExt.address){
+								
+								return n = 1;
+								
+							}else{
+								Base.showMsg("请完善个人信息");
+								setTimeout(function(){
+									location.href="../user/user-info.html"
+									return n=0;
+								},1000)
+							}
+						}
+					})
+    	
+        },
+        getUserInfo1: function(n ,resolve,reject){
+        	BindMobile.addMobileCont({
+	            success: function(res) {
+	            	userMobile = res;
+	            },
+	            hideFn: function() {
+	            },
+	            error: function(msg) {
+	                base.showMsg(msg);
+	            }
+	        });
+	        
+        	return Ajax.get("805056", {
+               		userId: Base.getUserId()
+            	}, false)
+					.then(function(res){
+						if(res.success){
+							if(!res.data.mobile && !userMobile){
+								
+								BindMobile.showMobileCont()
+								
+		                    }else if(res.data.userExt.address){
+								
+								var d = dialog({
+				                    content: "是否确定接单？每日接单上限为"+n,
+				                    ok: function () {
+				                        var that = this;
+				                        setTimeout(function () {
+				                            that.close().remove();
+				                        }, 1000);
+				                        resolve();
+				                        return true;
+				                    },
+				                    cancel: function () {
+				                        reject();
+				                        return true;
+				                    },
+				                    cancelValue: '取消',
+				                    okValue: '确定'
+				                });
+				                d.showModal();
+								
+							}else{
+								Base.showMsg("请完善个人信息");
+								setTimeout(function(){
+									location.href="../user/user-info.html"
+									return n=0;
+								},1000)
+							}
+						}
+					})
+    	
         },
         getUserId: function() {
             return sessionStorage.getItem("user") || "";
@@ -415,9 +527,10 @@ define([
             $("#pullUp").css("visibility", "visible");
         },
         goLogin: function(){
-            // location.href = "../user/wx-login.html?return=" + Base.makeReturnUrl();
+            loading.hideLoading();
             sessionStorage.setItem("l-return", location.pathname + location.search);
-            location.href = "../user/wx-login.html";
+            // login.addCont().showCont();
+            location.href = "../user/redirect.html";
         },
         confirm: function(msg) {
             return (new Promise(function (resolve, reject) {
@@ -450,8 +563,20 @@ define([
                     $iframe.off('load').remove();
                 }, 0);
             }).appendTo($('body'));
-        }
+        },
+        formatJF: function(s) {
+            if(!$.isNumeric(s))
+                return "--";
+            var num = +s / 1000;
+            return Math.ceil(num);
+        },
     };
-    Base.addIcon();
+    // 判断是否登录
+    if(!/\/redirect\.html/.test(location.href)){
+        if(!Base.isLogin()){
+            Base.goLogin();
+        }
+    }
+
     return Base;
 });

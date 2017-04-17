@@ -15,7 +15,7 @@ define([
                         html += '<div style="width:' + width + ';margin-top:' + width4 + 'px" class="bg_fff display">';
                     }
                     data[i].advPic = data[i].advPic.split(/\|\|/)[0];
-                    html += '<a class="wp100" href="../operator/buy.html?code=' + data[i].code + '">' +
+                    html += '<a class="wp100" href="../mall/buy.html?code=' + data[i].code + '">' +
                         '<img class="va-b" style="width:' + width + ';height:' + width + '" src="' + data[i].advPic + '">' +
                         '<div class="pl6 pt4 t_3dot">' + data[i].name + '</div>' +
                         '<div class="price pl6 s_15">￥' + (+data[i].price2 / 1000).toFixed(2) +

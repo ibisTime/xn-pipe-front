@@ -15,11 +15,11 @@ define([
     }
     function changeMobile(){
         loading.createLoading("修改中...");
-        Ajax.post("805047", {
+        Ajax.post("805061", {
             json: {
                 "newMobile": $("#change-mobile").val(),
                 "smsCaptcha": $("#change-smsCaptcha").val(),
-                "tradePwd": $("#change-trade-pwd").val(),
+                // "tradePwd": $("#change-trade-pwd").val(),
                 "userId": sessionStorage.getItem("user")
             }
         }).then(function(res){
@@ -69,13 +69,13 @@ define([
                         "change-mobile": {
                             required: true,
                             mobile: true
-                        },
-                        "change-trade-pwd": {
-                            required: true,
-                            maxlength: 16,
-                            minlength: 6,
-                            isNotFace: true
                         }
+                        // "change-trade-pwd": {
+                        //     required: true,
+                        //     maxlength: 16,
+                        //     minlength: 6,
+                        //     isNotFace: true
+                        // }
                     },
                     onkeyup: false
                 });
@@ -83,9 +83,9 @@ define([
                     checkInfo: function () {
                         return $("#change-mobile").valid();
                     },
-                    bizType: "805047",
-                    id: "change-getVerification",
-                    mobile: "change-mobile"
+                     bizType: "805047",
+                     id: "change-getVerification",
+                     mobile: "change-mobile"
                 });
             }
 
@@ -120,7 +120,7 @@ define([
                     func && func($("#change-mobile").val());
                     $("#change-mobile").val("");
                     $("#change-smsCaptcha").val("");
-                    $("#change-trade-pwd").val("");
+                    // $("#change-trade-pwd").val("");
                     wrap.find("label.error").remove();
                 });
             }

@@ -36,6 +36,14 @@ define([
         return pic ? (PIC_PREFIX + pic + THUMBNAIL_SUFFIX) : 
             (isAvatar && !isAvatar.name) ? defaultAvatar : "";
     });
+    Handlebars.registerHelper('formatImageNews', function(pic, isAvatar, options){
+        var defaultAvatar = __inline("../images/default-avatar.png");
+        if(pic){
+            pic = pic.split(/\|\|/)[0];
+        }
+        return pic ? (PIC_PREFIX + pic + THUMBNAIL_SUFFINEWS) : 
+            (isAvatar && !isAvatar.name) ? defaultAvatar : "";
+    });
     Handlebars.registerHelper('formatNoSuffixImage', function(pic, isAvatar, options){
         var defaultAvatar = __inline("../images/default-avatar.png");
         if(pic){
@@ -44,8 +52,16 @@ define([
         return pic ? (PIC_PREFIX + pic) : 
             (isAvatar && !isAvatar.name) ? defaultAvatar : "";
     });
+    Handlebars.registerHelper('formatListImage', function(pic, isAvatar, options){
+        var defaultAvatar = __inline("../images/default-avatar.png");
+        if(pic){
+            pic = pic.split(/\|\|/)[0];
+        }
+        return pic ? (PIC_PREFIX + pic + THUMBNAIL_SUFFIN) : 
+            (isAvatar && !isAvatar.name) ? defaultAvatar : "";
+    });
     Handlebars.registerHelper('formateDateTime', function(date, options){
-        return date ? new Date(date).format("yyyy-MM-dd hh-mm-ss") : "--";
+        return date ? new Date(date).format("yyyy-MM-dd hh:mm:ss") : "--";
     });
     Handlebars.registerHelper('formateDate', function(date, options){
         return date ? new Date(date).format("yyyy-MM-dd") : "--";

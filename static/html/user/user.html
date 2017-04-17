@@ -16,32 +16,33 @@
                     <div class="bounce4"></div> 
                 </div>
             </div>
-            <div class="wp100 plr15 ba bb tc">
-                <div class="avatar-wrap ptb20">  
-                    <img src="../images/设置－头像@2x.png" class="avatar">
-                </div>
-                <div class="fs15">moumou</div>
-                <div class="ptb15 fs12">未绑定手机号</div>
+            <div class="wp100 plr15 ba bb tc user-top ">
+                <a href="./account-security.html" class="user-wrap inline_block">
+                    <img id="avatar" class="user-avatar" src=""/>
+                </a>
+                <div class="user-txt user-name" id="nickname"></div>
+                <a class="user-txt pt10 pb30 fs12 inline_block" id="mobile"></a>
             </div>
-
-            <div class="fs15 ba lh40 wp100 plr15 bb p-r  clearfix">
+            
+			<div class="fs15 ba lh40 wp100 plr15 bb p-r clearfix user-order">
             	<div class=" inline_block">我的订单</div>
                 <div class="fr inline_block pr20 fs11 co9" >查看全部订单</div>
                 <img src="../images/更多@2x.png" class="more ">
             </div>
+            <div></div>
             <div class="wp100 ba clearfix bb">
-            	<div class="wp33 ptb15 fl tc">
+            	<a href="../mall/order_list.html?index=1" class="wp33 ptb15 fl tc">
                 	<img src="../images/待支付图标@2x.png" class="ic">
                     <div class="fs12">待支付</div>
-                </div>
-                <div class="wp33 ptb15 fl tc">
-                	<img src="../images/待确认图标@2x.png" class="ic">
-                    <div class="fs12">待支付</div>
-                </div>
-                <div class="wp33 ptb15 fl tc">
+                </a>
+                <a href="../mall/order_list.html?index=2" class="wp33 ptb15 fl tc">
                 	<img src="../images/退款图标@2x.png" class="ic-on">
-                    <div class="fs12">待支付</div>
-                </div>
+                    <div class="fs12">待发货</div>
+                </a>
+                <a href="../mall/order_list.html?index=3" class="wp33 ptb15 fl tc">
+                	<img src="../images/待确认图标@2x.png" class="ic">
+                    <div class="fs12">待收货</div>
+                </a>
             </div>
 
             <a href="./demand-order-list.html" class=" fs15 ba  lh50 wp100 plr15 bb p-r  clearfix mtb10">
@@ -49,26 +50,32 @@
                 <img src="../images/更多@2x.png" class="more">
             </a>
 
-            <div class=" fs15 ba  lh50 wp100 plr15 bb p-r  clearfix">
+            <a href="../mall/cart.html" class=" fs15 ba  lh50 wp100 plr15 bb p-r  clearfix">
             	<div class="inline_block car">购物车</div>
                 <img src="../images/更多@2x.png" class="more ">
-            </div>
+            </a>
 
-            <div class=" fs15 ba  lh50 wp100 plr15 bb p-r  clearfix">
+			<a href="./integral.html" class="fs15 ba  lh50 wp100 plr15 bb p-r  clearfix">
             	<div class=" inline_block car jifen">我的积分</div>
-                <div class="fr inline_block pr20 fs11 co9" >200积分</div>
+                <div class="fr inline_block pr20 fs11 co9" id="balance"></div>
                 <img src="../images/更多@2x.png" class="more ">
-            </div>
+            </a>
 
-            <div class=" fs15 ba  lh50 wp100 plr15 bb p-r  clearfix">
-            	<div class=" inline_block car xinxi">完善个人信息</div>
+			<a href="./user-info.html" class="fs15 ba  lh50 wp100 plr15 bb p-r  clearfix">	
+            	<div class=" inline_block car xinxi">个人信息</div>
                 <img src="../images/更多@2x.png" class="more ">
-            </div>
+            </a>
 
-            <div class=" fs15 ba  lh50 wp100 plr15 bb p-r  clearfix">
+            <a href="./setting.html"  class=" fs15 ba  lh50 wp100 plr15 bb p-r  clearfix">
             	<div class=" inline_block car gengduo">更多</div>
                 <img src="../images/更多@2x.png" class="more ">
-            </div>
+            </a>
+            
+            <div class="list-item-default-arrow" id="telephone">
+				<!-- <div class="default-icon-wrap fwrx-icon"></div>
+				服务热线：<span>400-832-0989</span>
+				<div class="st-jt"></div> -->
+			</div>
         </div>
     </div>
     <link rel="import" href="../footer.html?__inline">

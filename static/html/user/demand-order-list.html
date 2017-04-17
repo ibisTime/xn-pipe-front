@@ -7,10 +7,8 @@
 </head>
 <body class="bc">
     <div class="wp100 ba fs15 lh40 hig40 tc clearfix plr15">
-    	<div class="wp25 red order hig40 inline_block fl">全部</div>
-        <div class="wp25 inline_block fl">待付款</div>
-        <div class="wp25 inline_block fl">待确认</div>
-        <div class="wp25 inline_block fl">退款</div>
+    	<div class="wp50 red order hig40 inline_block fl orderNav">进行中订单</div>
+        <div class="wp50 inline_block fl orderNav">已结束订单</div>
     </div>
     <div class="wp100 order-scroll-wrapper" id="wrapper">
         <div id="scroll">
@@ -22,9 +20,11 @@
                     <div class="bounce4"></div> 
                 </div>
             </div>
+            
             <div id="content">
-                <div class="wp100 plr15 ba mt10 p-r hig120 bb">
-                    <div class="inline_block order-img ptb19"><img src="../images/背。景@2x.png " ></div>
+            	
+                <!--<a href="order-detail.html" class="wp100 plr15 ba mt10 p-r hig120 bb">
+                    <div class="inline_block order-img ptb19"><img src="../images/背。景@2x.png" ></div>
                     <div class="inline_block  p-a order-box hp100  pt14 pr15">
                         <div class="fs14 ">金华聚牛网络科技有限公司</div>
                         <div class="fs13 "> 卫生间水管施工</div>
@@ -32,23 +32,23 @@
                         <div class="fs12 ">时间：2017-02-10</div>
                         <div class="fs14 red  order-price pt15">¥299/㎡</div>
                     </div>
-                </div>
+                </a>
                 <div class="wp100 lh50 hig50 ba plr15 p-r pt9" >
                     <input type="button" value="取消" class="cancel tc red fs14 p-a">
-                </div>
-            </div>
-            <div id="pullUp" class="idle">
-                <div class="pullUpLabel">
-                    <div class="bounce1"></div>
-                    <div class="bounce2"></div>
-                    <div class="bounce3"></div>
-                    <div class="bounce4"></div>
-                </div>
+                </div>-->
+            
+	            <div id="pullUp" class="idle">
+	                <div class="pullUpLabel">
+	                    <div class="bounce1"></div>
+	                    <div class="bounce2"></div>
+	                    <div class="bounce3"></div>
+	                    <div class="bounce4"></div>
+	                </div>
+	            </div>
             </div>
         </div>
     </div>
     <link rel="import" href="../footer.html?__inline">
-
     <script data-loader>
         require(['app/controller/user/DemandOrderList']);
     </script>

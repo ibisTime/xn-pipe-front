@@ -55,12 +55,13 @@
     left: 0;
     top: 0;
 }
-.right-left-cont-info-input-right input[type=text] {
+.right-left-cont-info-input-right input[type=text],
+.right-left-cont-info-input-right input[type=number] {
     width: 100%;
     padding-right: 15px;
     color: #484848;
     font-size: 15px;
-    line-height: 50px;
+    /*line-height: 50px;*/
     background-color: transparent;
 }
 .pr110 {

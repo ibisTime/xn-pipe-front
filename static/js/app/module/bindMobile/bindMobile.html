@@ -7,7 +7,7 @@
         <div class="right-left-cont-info-input-wrap">
             <span class="right-left-cont-info-input-left">手机号：</span>
             <div class="right-left-cont-info-input-right">
-                <input type="text" name="bind-mobile" id="bind-mobile" placeholder="请输入手机号">
+                <input type="number" pattern="[0-9]*" name="bind-mobile" id="bind-mobile" placeholder="请输入手机号">
             </div>
         </div>
         <div class="right-left-cont-info-input-wrap">
@@ -15,7 +15,7 @@
             <div class="right-left-cont-info-input-right">
                 <div class="pr110">
                     <div class="p-r">
-                        <input type="text" name="bind-smsCaptcha" id="bind-smsCaptcha" placeholder="短信验证码">
+                        <input type="number" pattern="[0-9]*" name="bind-smsCaptcha" id="bind-smsCaptcha" placeholder="短信验证码">
                     </div>
                 </div>
                 <input type="button" value="获取验证码" id="bind-getVerification" class="captcha-btn">

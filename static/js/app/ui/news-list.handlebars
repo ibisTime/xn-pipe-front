@@ -1,0 +1,11 @@
+{{#each items}}
+	<div class="wp100 plr15 ba mt10 p-r hig80 bb over-hide">
+		<a href="./home/news-detail.html?code={{code}}" class="wp100 inline_block over-hide hp100">
+			<div class="inline_block news ptb7"><img style="max-height: 100%;" src="{{formatImageNews pic}}" ></div>
+		    <div class="inline_block  p-a news-box hp100 ptb7 pr15">
+		   	 	<div class="fs14 ">{{title}}</div>
+		   	 	<div class="fs11 co9  news-time">{{formateDate updateDatetime}}</div>
+			</div>
+    	</a>
+    </div>
+{{/each}}

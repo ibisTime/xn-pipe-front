@@ -1,0 +1,15 @@
+{{#each items}}
+	<div class="wp100 show over-hide re">
+	<a href="./detail.html?code={{code}}" class="wp100 show over-hide">
+		<img src="{{formatListImage pic}}" class="wp100 com-img show">
+		<div class="wp100 plr15 ba p-r">
+	        <div class="fs14 pt10 pb8">{{dealer.name}}</div>
+	   	    <div class="fs13 "> {{summary}}</div>
+	    	<div class="fs12 ptb6 co9">地点：{{province}}{{city}}{{area}} {{address}}</div>
+	  	    <div class="fs12 co9">时间：{{formateDate startDatetime}}</div>
+	   	    <div class="fs16 ptb15 red inline_block">￥{{price}}</div>
+		</div>
+    </a>
+    <div class="Then-live tc lh27 inline_block p-a fs14 demandBtn" data-code="{{code}}" >确认接活</div>
+    </div>
+{{/each}}

@@ -129,7 +129,10 @@ define([
                 if (option.text) {
                     point = new BMap.Point(option.point.lng, option.point.lat);
                     myValue = option.text;
-                    setShowPlace();
+                    setPlace();
+        			$("#J_SearchMapInput").val(myValue);
+        			
+//                  setShowPlace();
                 }
                 var mapCont = $("#J_SearchMapWrapper");
                 mapCont.css("top", $(window).scrollTop() + "px");

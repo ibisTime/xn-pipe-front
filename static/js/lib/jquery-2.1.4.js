@@ -639,7 +639,7 @@ var i,
 
 	// Attribute selectors: http://www.w3.org/TR/selectors/#attribute-selectors
 	attributes = "\\[" + whitespace + "*(" + characterEncoding + ")(?:" + whitespace +
-		// Operator (capture 2)
+		// mall (capture 2)
 		"*([*^$|!~]?=)" + whitespace +
 		// "Attribute values must be CSS identifiers [capture 5] or strings [capture 3 or capture 4]"
 		"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + identifier + "))|)" + whitespace +
@@ -1642,26 +1642,26 @@ Expr = Sizzle.selectors = {
 				});
 		},
 
-		"ATTR": function( name, operator, check ) {
+		"ATTR": function( name, mall, check ) {
 			return function( elem ) {
 				var result = Sizzle.attr( elem, name );
 
 				if ( result == null ) {
-					return operator === "!=";
+					return mall === "!=";
 				}
-				if ( !operator ) {
+				if ( !mall ) {
 					return true;
 				}
 
 				result += "";
 
-				return operator === "=" ? result === check :
-					operator === "!=" ? result !== check :
-					operator === "^=" ? check && result.indexOf( check ) === 0 :
-					operator === "*=" ? check && result.indexOf( check ) > -1 :
-					operator === "$=" ? check && result.slice( -check.length ) === check :
-					operator === "~=" ? ( " " + result.replace( rwhitespace, " " ) + " " ).indexOf( check ) > -1 :
-					operator === "|=" ? result === check || result.slice( 0, check.length + 1 ) === check + "-" :
+				return mall === "=" ? result === check :
+					mall === "!=" ? result !== check :
+					mall === "^=" ? check && result.indexOf( check ) === 0 :
+					mall === "*=" ? check && result.indexOf( check ) > -1 :
+					mall === "$=" ? check && result.slice( -check.length ) === check :
+					mall === "~=" ? ( " " + result.replace( rwhitespace, " " ) + " " ).indexOf( check ) > -1 :
+					mall === "|=" ? result === check || result.slice( 0, check.length + 1 ) === check + "-" :
 					false;
 			};
 		},
@@ -2309,7 +2309,7 @@ function matcherFromTokens( tokens ) {
 
 			// Return special upon seeing a positional matcher
 			if ( matcher[ expando ] ) {
-				// Find the next relative operator (if any) for proper handling
+				// Find the next relative mall (if any) for proper handling
 				j = ++i;
 				for ( ; j < len; j++ ) {
 					if ( Expr.relative[ tokens[j].type ] ) {

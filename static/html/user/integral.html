@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <link rel="import" href="../head.html?__inline">
+    <title>我的积分</title>
+
+</head>
+
+<body class="bc">
+
+	<div class=" fs12 ba  lh50 wp100 plr10  point" id="balance"></div>
+	
+	<div class="wp100 fs16 integral-wrapper" id="wrapper">
+		<div id="scroll">
+			<div id="pullDown" class="idle">
+                <div class="pullDownLabel">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div> 
+                    <div class="bounce4"></div> 
+                </div>
+            </div>
+            <div class="integralWrap" id="integralWrap">
+				<!--<div class="wp100 plr10 hig54 ba  bb clearfix ">
+					<div style="height: 54px;vertical-align: middle;width: 0;display: inline-block;"></div>
+					<div class="inline_block va">
+				    	<div class="fs13 ">购买</div>
+				        <div class=" fs12 co9 pt8">2017-02-12</div>
+				    </div>
+				    <div class="  red fs18 va fr lh54">+5</div>
+				</div>-->
+				
+			</div>
+			<div id="pullUp" class="idle" style="display: block;">
+                <div class="pullUpLabel">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                    <div class="bounce4"></div>
+                </div>
+            </div>
+		</div>
+	</div>
+	<!--<div class="wp100 plr10 hig54 ba  bb clearfix ">
+		<div style="height: 54px;vertical-align: middle;width: 0;display: inline-block;"></div>
+		<div class="inline_block va">
+	    	<div class="fs13 ">购买</div>
+	        <div class=" fs12 co9 pt8">2017-02-12</div>
+	    </div>
+	    <div class="  yellow fs18 va fr lh54">+5</div>
+	</div>-->
+    <link rel="import" href="../footer.html?__inline">
+    
+<script data-loader>
+        require(['js/app/controller/user/Integral']);
+    </script>
+</body>
+
+</html>

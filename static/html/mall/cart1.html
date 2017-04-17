@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <link rel="import" href="../head.html?__inline">
+    <title>购物车</title>
+</head>
+<body class="bc">
+    <div class="wp100" id="wrapper">
+        <div id="scroll">
+            <div id="pullDown" class="idle">
+                <div class="pullDownLabel">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                    <div class="bounce4"></div>
+                </div>
+            </div>
+            <div id="content">
+				<div class="wp100" id="cartWrap">
+					<div class="wp100 plr15 ba mb10 p-r hig120 bb cart-wrap">
+	                    <div class="cart-radio inline_block"></div>
+	                    <a href="../demand/detail.html" class="inline_block order-img ptb19"><img src="../images/背。景@2x.png" ></a>
+	                    <div class="inline_block  p-a order-box hp100  ptb18 pr15">
+	                        <div class="fs15 order-tit">金华聚牛网络科技有限公司金华聚牛网络科技有限公司</div>
+	                        <div class="fs13 pt8 co9">金华聚牛网络科技有限公司</div>
+	                        <div class="fs15 order-price">￥230</div>
+	                    </div>
+	                    <div class="cart-remove inline_block"><img src="../images/删除@2x.png"/></div>
+	                    <div class="cart-btnWrap">
+	                        <div class="cart-btn cart-sub"></div>
+	                        <input type="number" pattern="[0-9]*" name="cart-num" class="cart-num" value="1">
+	                        <div class="cart-btn cart-add"></div>
+	                    </div>
+	                </div>
+	                
+	                
+				</div>
+
+                <div id="pullUp" class="idle">
+                    <div class="pullUpLabel">
+                        <div class="bounce1"></div>
+                        <div class="bounce2"></div>
+                        <div class="bounce3"></div>
+                        <div class="bounce4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="wp100 cart-bottom b_bd_t bg_fff">
+    	<div class="cart-bR inline_block fl">
+    		<div class="cart-radio inline_block"></div>
+    		<div class="fs15 inline_block lh40 pl30 co6">全选</div>
+    	</div>
+    	<input type="button" value="结算" class="cart-btnSettlement fs15 inline_block fr" />
+    	<div class="cart-money fs15 co9 inline_block fr">合计：<p class="inline_block" id="totalAmount">￥2340</p></div>
+    </div>
+
+    <link rel="import" href="../footer.html?__inline">
+    <script data-loader>
+        require(['js/app/controller/mall/Cart']);
+    </script>
+</body>
+</html>
