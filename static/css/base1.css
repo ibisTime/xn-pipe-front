@@ -1349,6 +1349,9 @@ textarea {
 .t_under {
     text-decoration: underline;
 }
+.t_through {
+    text-decoration: line-through;
+}
 
 
 /*float  浮动*/
@@ -3668,4 +3671,64 @@ label.error {
 
 .consume-ul li:last-child {
     border-bottom: none;
+}
+
+.am-flexbox {
+    text-align: left;
+    overflow-y: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.am-flexbox.am-flexbox-wrap {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.am-flexbox.am-flexbox-align-middle {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.am-flexbox.am-flexbox-justify-between {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.am-flexbox.am-flexbox-justify-around {
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+.am-flexbox.am-flexbox-align-top {
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.pb16{
+    padding-bottom: 16px;
+}
+
+.pb1_6em{
+    padding-bottom: 1.6em;
+}
+.fenlei-p{
+    position: absolute;
+    bottom: 0;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    left: 0;
+    text-align: center;
 }

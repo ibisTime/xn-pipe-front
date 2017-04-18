@@ -12,7 +12,8 @@ define([
             searchConfig = {
                 limit: 15,
                 start: 1,
-                status: "3"
+                status: "3",
+                companyCode: SYSTEM_CODE
             },
             searchUrl = '808025';
 
@@ -76,7 +77,7 @@ define([
                                 }
                                 html += '</p>';
                                 if (d.originalPrice) {
-                                    html += '<p class="s_10">市场参考价：<span>' + base.formatMoney(d.originalPrice) + '</span>元</p>';
+                                    html += '<p class="s_10 t_through">市场参考价：<span>' + base.formatMoney(d.originalPrice) + '</span>元</p>';
                                 }
                                 html += '</div></a></li>';
                             });

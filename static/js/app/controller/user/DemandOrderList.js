@@ -5,7 +5,7 @@ define([
     'app/module/scroll/scroll'
 ], function(base, Ajax, loading, scroll) {
 	var myScroll, isEnd = false, isLoading = false;
-        
+
 	var dOrderStutas = 0;//0，进行中 ；1，已接单
 	var userId = base.getUserId();
 	var navIndex = 0;
@@ -17,7 +17,7 @@ define([
 	        status: 0
 	    };
 
-	
+
     init();
 
     function init() {
@@ -26,23 +26,23 @@ define([
         initIScroll();
         addListener();
     }
-    
+
     function getInitData(){
     	getDOrderList(true);
         loading.hideLoading();
     }
 
     function addListener() {
-    	
+
         $(".orderNav").click(function(){
         	var thisINdex = $(this).index();
         	if(navIndex == thisINdex){
-        		navIndex =navIndex; 
+        		navIndex =navIndex;
         	}else{
         		navIndex= thisINdex;
         		$("#content").html("");
         	}
-        	
+
         	if(thisINdex==0){
         		config = {
 					receiver: userId,
@@ -58,15 +58,15 @@ define([
 			        statusList: [91,92,2]
 			    }
         	}
-        	
+
             $(this).addClass("red").addClass("order").siblings(".orderNav").removeClass("red").removeClass("order");
             getDOrderList(true);
         })
-        
+
         //取消订单
         $("#content").on("click",".dOcancelBtn",function(){
         	var thisCode = $(this).attr("data-code");
-        	
+
         	cancelOrder("619060",thisCode,getDOrderList);
         });
     }
@@ -96,7 +96,7 @@ define([
                 });
             }, base.emptyFun);
     }
-	
+
     function initIScroll(){
         myScroll = scroll.getInstance().getOnlyUpScroll({
         	loadMore: function () {
@@ -109,7 +109,7 @@ define([
         });
 
     }
-    
+
     function getDOrderList(refresh){
     	if(!isLoading && (!isEnd || refresh) ){
             isLoading = true;
@@ -120,29 +120,31 @@ define([
                     if(res.success && res.data.list.length){
                         var list = res.data.list;
                         var hallListTmpl = "";
-                        
+
                         if(list.length < config.limit){
 	                        isEnd = true;
 	                    }
                         for(var i = 0; i < list.length; i++){
-	                        
+
 							var dPic = list[i].demand.pic;//需求图片
 			    			var dName = list[i].dealer.name;//经销商
 			    			var dSummary = list[i].demand.summary;//需求简述
-			    			
+
 			    			var dAddress = list[i].demand.address;//地址
-			    			var dData = base.formatDate(list[i].demand.startDatetime,"yyyy-MM-dd");//开始时间
+                            var startDatetime = base.formatDate(list[i].demand.startDatetime,"yyyy-MM-dd");//开始时间
+			    			var endDatetime = base.formatDate(list[i].demand.endDatetime,"yyyy-MM-dd");//开始时间
 			    			var dPrice = list[i].demand.price;//需求价钱
-			    			
+
 			    			var s="";
-			    			
-			    			s+="<a href='demand-order-detail.html?code="+list[i].code+"' class='wp100 plr15 ba mt10 p-r hig120 bb'>";
+
+			    			s+="<a href='demand-order-detail.html?code="+list[i].code+"' class='wp100 plr15 ba mt10 p-r hig140 bb'>";
 	                    	s+="<div class='inline_block order-img ptb19'><img src='"+PIC_PREFIX+dPic+THUMBNAIL_SUFFIX+"' ></div>";
 	                    	s+="<div class='inline_block  p-a order-box hp100  pt14 pr15'>";
 	                        s+="<div class='fs14 '>"+dName+"</div>";
 	                        s+="<div class='fs13 '>"+dSummary+"</div>";
 	                        s+="<div class='fs12 t_norwrap'>地点："+dAddress+"</div>";
-	                        s+="<div class='fs12 '>时间："+dData+"</div>";
+                            s+="<div class='fs12 '>开始时间："+startDatetime+"</div>";
+	                        s+="<div class='fs12 '>结束时间："+endDatetime+"</div>";
 	                        s+="<div class='fs14 red  order-price pt15'>￥"+dPrice+"</div></div></a>";
 	                        if(navIndex == 0){
 	                        	s+="<div class='wp100 lh50 hig50 ba plr15 p-r pt9 ' ><input type='button' value='取消' data-code='"+list[i].code+"' class='cancel tc red fs14 p-a dOcancelBtn'></div>";
@@ -151,12 +153,12 @@ define([
 	                        }else{
 	                        	s+="<div class='wp100 lh50 hig50 ba plr15 p-r pt9' ><input type='button' value='已完成' data-code='"+list[i].code+"' class='cancel tc red fs14 p-a'></div>";
 	                        }
-	                		
+
 			    			hallListTmpl +=s;
-			    			
+
 	                        $("#content")[refresh ? "html" : "append"](hallListTmpl);
                         }
-                        
+
                         config.start++;
                     }else{
                         if(refresh){
@@ -168,7 +170,7 @@ define([
                     base.hidePullUp();
                     myScroll.refresh();
                     isLoading = false;
-                    
+
         			loading.hideLoading();
                 }, function(){
                     isLoading = false;

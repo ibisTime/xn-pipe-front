@@ -12,6 +12,7 @@
 .hig44{height:44px;}
 .hig80{height:80px;}
 .hig130{height:130px;}
+.hig140{height:140px;}
 .ba{background-color:#ffffff;}
 .bc{background-color:#f0f0f0;}
 .lh200{line-height:200%;}
@@ -316,4 +317,12 @@ margin-right: 10px;color:#ffffff;}
 	height: 0;
 	overflow: hidden;
 	background: transparent;
+}
+
+.user-info-address{
+	width: 100%;
+    position: absolute;
+    padding-left: 3.4em;
+    box-sizing: border-box;
+    left: 0;
 }

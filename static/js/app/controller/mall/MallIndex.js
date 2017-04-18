@@ -11,19 +11,20 @@ define([
         canScrolling = false;
     var indexTopImg = dict.get("indexTopImg");
     var imgWidth = (($(window).width() - 20) / 2 - 8) + "px";
-    
+
     var config = {
         "status": "3",
         "start": 1,
         "limit": 10,
-        companyCode: COMPANY_CODE
+        companyCode: COMPANY_CODE,
+        location: "1"
     };
 
     init();
     Foot.addFoot(false);
     getModuleAndBanner();
     //banner图
-   
+
     function getModuleAndBanner(){
         return Ajax.get("806052")
             .then(function(res){
@@ -45,10 +46,10 @@ define([
                 base.showMsg("加载失败");
             });
     }
-    
-    
+
+
     function initSwiper(){
-	   	var mySwiper = new Swiper('.swiper-container', {
+	   	var mySwiper = new Swiper('#swiper-container', {
 	        'direction': 'horizontal',
 	        'autoplay': 2000,
 	        'autoplayDisableOnInteraction': false,
@@ -59,7 +60,7 @@ define([
 
     function init() {
         addListeners();
-        
+
         var param = {
             "parentCode": "0",
             "status": "1",
@@ -80,12 +81,12 @@ define([
                         name1 = val.name,
                         code1 = val.code;
 
-                    var html1 = '<li><div><img src="' + base.getImg(pic1) + '" alt=""></div><p>' + name1 + '</p></li>';
+                    var html1 = '<div class="wp20 plr10 mb4 p-r pb1_6em"><div><img src="' + base.getImg(pic1) + '" alt=""></div><p class="s_10 fenlei-p">' + name1 + '</p></div>';
                     html1 = $(html1);
                     html1.on("click", function() {
                         location.href = "./mall_list.html?c=" + code1;
                     })
-                    $(".classOne").append(html1)
+                    $("#classOne").append(html1)
                 });
             }else{
             	base.showMsg(res1.msg)
@@ -113,7 +114,7 @@ define([
                                 : "",
                             code = val.code;
 
-                        html += '<li class="ptb8 clearfix b_bd_b plr10"><a class="show p_r min-h100p" href="../mall/buy.html?code=' + code + '"><div class="order-img-wrap tc"><img class="center-img1" src="' + PIC_PREFIX + pic2 + '"></div><div class="order-right-wrap clearfix"><p class="t_323232 s_12 line-tow">' + name + '</p><p class="t_999 s_10 line-tow">' + slogan + '</p><p class="t_red"><span class="s_10 t_40pe">' + price3 + '</span></p><p class="s_10">市场参考价：<span>' + originalPrice + '</span>元</p></div></a></li>';
+                        html += '<li class="ptb8 clearfix b_bd_b plr10"><a class="show p_r min-h100p" href="../mall/buy.html?code=' + code + '"><div class="order-img-wrap tc"><img class="center-img1" src="' + PIC_PREFIX + pic2 + '"></div><div class="order-right-wrap clearfix"><p class="t_323232 s_12 line-tow">' + name + '</p><p class="t_999 s_10 line-tow">' + slogan + '</p><p class="t_red"><span class="s_10 t_40pe">' + price3 + '</span></p><p class="s_10 t_through">市场参考价：<span>' + originalPrice + '</span>元</p></div></a></li>';
                     })
                     $("#contUl").append(loadImg.loadImg(html));
                     if(config.limit > res.data.list.length || config.limit >= res.data.totalCount){
@@ -131,6 +132,22 @@ define([
             var sVal = $("#searchInput").val().trim();
             sVal = decodeURIComponent(sVal);
             location.href = "./search.html?s=" + sVal;
+        });
+        $("#swiper-container").on("touchstart", ".swiper-slide img", function (e) {
+            var touches = e.originalEvent.targetTouches[0],
+                me = $(this);
+            me.data("x", touches.clientX);
+        });
+        $("#swiper-container").on("touchend", ".swiper-slide img", function (e) {
+            var me = $(this),
+                touches = e.originalEvent.changedTouches[0],
+                ex = touches.clientX,
+                xx = parseInt(me.data("x")) - ex;
+            if(Math.abs(xx) < 6){
+                var url = me.attr('data-url');
+                if(url)
+                    location.href = url;
+            }
         });
         $(window).on("scroll", function() {
             // var me = $(this);

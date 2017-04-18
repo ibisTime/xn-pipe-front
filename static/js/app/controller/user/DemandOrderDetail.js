@@ -4,14 +4,14 @@ define([
     'app/module/loading/loading'
 ], function(base, Ajax, loading) {
 	var code = base.getUrlParam("code");
-	
-	
+
+
     init();
 
     function init() {
         loading.createLoading();
 		addListener();
-		
+
     }
 
     function addListener() {
@@ -31,15 +31,16 @@ define([
 				var dSummary = res1.data.demand.summary;//需求简述
     			var dNote = res1.data.demand.detail;//需求详述
     			var ddealerCode = res1.data.dealerCode;//经销商code
-				
-				
+
+
 				var dAddress = res1.data.demand.address;//地址
-				
-				
-				var dData = base.formatDate(res1.data.demand.startDatetime,"yyyy-MM-dd");//开始时间
+
+
+                var startDatetime = base.formatDate(res1.data.demand.startDatetime,"yyyy-MM-dd");//开始时间
+				var endDatetime = base.formatDate(res1.data.demand.endDatetime,"yyyy-MM-dd");//结束时间
 				var dPrice = res1.data.demand.price;//需求价钱
-				
-				
+
+
 				$(".order-code").html("订单号："+ocode);
 				$(".order-uDate").html("下单时间："+oData);
 				$(".order-stutas").html("订单状态："+oStutas);
@@ -49,18 +50,19 @@ define([
 				$(".demandName").attr("data-code",ddealerCode);
 				$(".demandSummary").html(dSummary);
 				$(".demandAddress").html("地点："+dAddress);
-				$(".demandData").html("时间："+dData);
+                $(".demandStartData").html("开始时间："+startDatetime);
+				$(".demandEndData").html("结束时间："+endDatetime);
 				$(".demandPrice").html("￥"+dPrice);
 				$(".demandNote").html(dNote);
 				$(".dorder-con").attr("href","demand-detail-dealer.html?code="+ddealerCode)
-	    		
+
 	    		loading.hideLoading();
     		}else{
     			base.showMsg(res1.msg)
     		}
     	})
     }
-    
+
     function dictArray(dkey,arrayData){//类型
 		for(var i = 0 ; i < arrayData.length; i++ ){
 			if(dkey == arrayData[i].dkey){

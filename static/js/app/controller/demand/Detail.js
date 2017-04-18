@@ -6,7 +6,7 @@ define([
 ], function(base, Ajax, Handlebars, loading) {
 
     var code = base.getUrlParam("code"),mobile;
-	
+
 	$.when(
 		Ajax.get("619917",{
 		"ckey": "limit"
@@ -21,12 +21,12 @@ define([
         getDetail();
         addListener();
     }
-    
+
     function addListener() {
-    	
+
     	$("#demandBtn").on("click",function(){
     		var n;
-    		
+
     		base.getUserInfo1(limit,function(){
 				var param = {
 	    			"code": code,
@@ -46,12 +46,12 @@ define([
 	    				base.showMsg("接活失败，请重新接活")
 	    			})
 			},function(){
-				
+
 			})
-    			
+
     	})
     }
-    
+
     function getDetail(){
     	Ajax.get("619032",{
     		"code":code
@@ -61,18 +61,20 @@ define([
     			var dName = res.data.dealer.name;//经销商
     			var dSummary = res.data.summary;//需求简述
     			var dAddress = res.data.address;////地址
-    			var dData = base.formatDate(res.data.startDatetime,"yyyy-MM-dd");//开始时间
+                var startData = base.formatDate(res.data.startDatetime,"yyyy-MM-dd");//开始时间
+    			var endData = base.formatDate(res.data.endDatetime,"yyyy-MM-dd");//结束时间
     			var dPrice = res.data.price;//需求价钱
     			var dNote = res.data.detail;//需求详述
-    			
+
     			$(".demandPic").attr("src",PIC_PREFIX+dPic+THUMBNAIL_SUFFIX);
     			$(".demandName").html(dName);
     			$(".demandSummary").html(dSummary);
     			$(".demandAddress").html("地点："+dAddress);
-    			$(".demandData").html("时间："+dData);
+                $(".demandStartData").html("开始时间："+startData);
+    			$(".demandEndData").html("结束时间："+endData);
     			$(".demandPrice").html(dPrice);
     			$(".demandNote").html(dNote);
-    			
+
     			if(res.data.status==1){
     				$("#demandBtn").show()
     			}

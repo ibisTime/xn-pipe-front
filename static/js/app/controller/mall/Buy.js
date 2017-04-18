@@ -84,7 +84,7 @@ define([
                 $("#buyCount").val(orig);
                 $("#buyCount").change();
                 $(".JF").text(JF);
-                
+
             });
             $("#buyCount").on("keyup", function(e) {
                 var keyCode = e.charCode || e.keyCode;
@@ -120,7 +120,7 @@ define([
                 table_html = "<tbody>";
             if (!mySwiper) {
                 $.each(pics,function (i,val) {
-                    var html = `<div class="swiper-slide tc"><img src="`+PIC_PREFIX+val+`"></div>`;
+                    var html = '<div class="swiper-slide tc"><img src="'+PIC_PREFIX+val+'"></div>';
                     $("#btlImgs").append(html);
                 })
                 mySwiper = new Swiper('.swiper-container', {

@@ -29,7 +29,7 @@ define([
 
         initView();
         Foot.addFoot(false);
-        
+
         function initView() {
             PROVINCE = sessionStorage.getItem("province") || "";
             CITY = sessionStorage.getItem("city") || "";
@@ -136,10 +136,9 @@ define([
                 .then(function(res) {
                     if (res.success && res.data.length) {
                         for (var i = 0, html = ""; i < res.data.length; i++) {
-                            html += '<li><a href="javascript:void(0)" l_type="' + res.data[i].code + '"><div>'+
-                                '<img src="'+base.getImg(res.data[i].pic)+'" alt=""></div><p>' + res.data[i].name + '</p></a></li>';
+                            html += '<div class="wp20 p-r plr10 mb4"><a class="pb1_6em" href="javascript:void(0)" l_type="' + res.data[i].code + '"><div>'+
+                                '<img src="'+base.getImg(res.data[i].pic)+'" alt=""></div><p class="s_10 fenlei-p">' + res.data[i].name + '</p></a></div>';
                         }
-                        // html += '</tr>';
                         var center = $(html),
                             imgs = center.find('img'),
                             length = imgs.length;

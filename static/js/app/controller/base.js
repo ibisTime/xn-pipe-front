@@ -18,7 +18,7 @@ define([
             return num;
         }
     }
-    
+
     String.prototype.temp = function(obj) {
         return this.replace(/\$\w+\$/gi, function(matchs) {
             var returns = obj[matchs.replace(/\$/g, "")];
@@ -283,7 +283,7 @@ define([
                             }
                             //百度地图的城市名称可能和oss存的名称不同，需要匹配出相同的名称
                             getRealLocation(initFun, province, city, area, longitude, latitude, errFun);
-                        });  
+                        });
                     } else {
                         loading.hideLoading();
                         Base.showMsg("定位失败");
@@ -381,7 +381,7 @@ define([
                     location.href = url || "../index.html";
                 }
             }
-            
+
         },
         goBack: function() {
             window.history.back();
@@ -425,13 +425,13 @@ define([
 					.then(function(res){
 						if(res.success){
 							if(!res.data.mobile && !userMobile){
-								
+
 								BindMobile.showMobileCont()
-								
+
 		                    }else if(res.data.userExt.address){
-								
+
 								return n = 1;
-								
+
 							}else{
 								Base.showMsg("请完善个人信息");
 								setTimeout(function(){
@@ -441,7 +441,7 @@ define([
 							}
 						}
 					})
-    	
+
         },
         getUserInfo1: function(n ,resolve,reject){
         	BindMobile.addMobileCont({
@@ -454,18 +454,15 @@ define([
 	                base.showMsg(msg);
 	            }
 	        });
-	        
+
         	return Ajax.get("805056", {
                		userId: Base.getUserId()
             	}, false)
 					.then(function(res){
 						if(res.success){
 							if(!res.data.mobile && !userMobile){
-								
-								BindMobile.showMobileCont()
-								
+								BindMobile.showMobileCont();
 		                    }else if(res.data.userExt.address){
-								
 								var d = dialog({
 				                    content: "是否确定接单？每日接单上限为"+n,
 				                    ok: function () {
@@ -484,7 +481,7 @@ define([
 				                    okValue: '确定'
 				                });
 				                d.showModal();
-								
+
 							}else{
 								Base.showMsg("请完善个人信息");
 								setTimeout(function(){
@@ -494,7 +491,7 @@ define([
 							}
 						}
 					})
-    	
+
         },
         getUserId: function() {
             return sessionStorage.getItem("user") || "";
