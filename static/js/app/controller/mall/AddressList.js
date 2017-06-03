@@ -17,7 +17,6 @@ define([
 		};
         Ajax.post(url, {json:param})
             .then(function(response){
-				console.log(response)
             	$("#cont").remove();
                 if(response.success){
                     var data = response.data,
@@ -27,6 +26,11 @@ define([
                     	$("#addressDiv").append(html);
                     	$("#addressDiv").find("a[code='"+code+"'] .radio-tip").addClass("active");
                     	$("footer").removeClass("hidden");
+                        for (var i = 0; i < data.length; i++) {
+                            if (data.isDefault == "1") {
+                                $(this).find("#addressDiv a[code='"+code+"'] .radio-tip").addClass("active");
+                            }
+                        }
                     }else{
                         doError("#addressDiv", 1);
                     }
@@ -34,32 +38,32 @@ define([
                 	doError("#addressDiv");
                 }
             });
-    $("#addressDiv").on("click", "a", function(){
-        var me = $(this);
-        $("#loaddingIcon").removeClass("hidden");
-		var config = {
+  //   $("#addressDiv").on("click", "a", function(){
+  //       var me = $(this);
+  //       $("#loaddingIcon").removeClass("hidden");
+		// var config = {
 
 
-			"userId": userId,
-			"token": token,
-			"addressee": me.find(".a-addressee").text(),
-            "mobile": me.find(".a-mobile").text(),
-            "province": me.find(".a-province").text(),
-            "city": me.find(".a-city").text(),
-            "district": me.find(".a-district").text(),
-            "detailAddress": me.find(".a-detailAddress").text(),
-            "isDefault": "1",
-            "code": me.attr("code")
-        };
-        Ajax.post("805162", {json:config})
-            .then(function (response) {
-                if(response.success){
-                    location.href = returnUrl;
-                }else{
-                    $("#loaddingIcon").addClass("hidden");
-                }
-            });
-    });
+		// 	"userId": userId,
+		// 	"token": token,
+		// 	"addressee": me.find(".a-addressee").text(),
+  //           "mobile": me.find(".a-mobile").text(),
+  //           "province": me.find(".a-province").text(),
+  //           "city": me.find(".a-city").text(),
+  //           "district": me.find(".a-district").text(),
+  //           "detailAddress": me.find(".a-detailAddress").text(),
+  //           "isDefault": "1",
+  //           "code": me.attr("code")
+  //       };
+  //       Ajax.post("805162", {json:config})
+  //           .then(function (response) {
+  //               if(response.success){
+  //                   // location.href = returnUrl;
+  //               }else{
+  //                   $("#loaddingIcon").addClass("hidden");
+  //               }
+  //           });
+  //   });
 
     $("#addressDiv").on("touchstart", ".addr_div", function(e){
     	e.stopPropagation();

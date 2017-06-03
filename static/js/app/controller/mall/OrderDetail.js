@@ -85,9 +85,12 @@ define([
                                         html += '<p class="item_totalP">' + base.formatMoney(product.price2) + '<span class="t_40pe s_09 pl4">菜狗币</span></p>';
                                     }
                                     if (product.price3) {
-                                        html += '<p class="item_totalP">' + base.formatMoney(product.price3) + '<span class="t_40pe s_09 pl4">积分</span></p>';
+                                        html += '<p class="item_totalP">' + base.formatMoney(product.price3) + '<span class="t_40pe s_09 pl4">积分</span>';
                                     }
-                                    html += '<p class="t_80">×<span>' + product.quantity + '</span></p></div></div></a></li>';
+                                    if (product.price1) {
+                                        html += '/' + base.formatMoney(product.price1) + '<span class="t_40pe s_09 pl4">元</span>';
+                                    }
+                                    html += '</p><p class="t_80">×<span>' + product.quantity + '</span></p></div></div></a></li>';
                                 });
                                 html += '</ul>';
 
@@ -96,6 +99,10 @@ define([
                                 if (data.amount3) {
                                     $("#cnySpan").removeClass("hidden");
                                     $("#totalJFAmount").text(base.formatMoney(data.amount3));
+                                }
+                                if (data.amount1) {
+                                    $("#rmbSpan").removeClass("hidden");
+                                    $("#totalRMBAmount").text(base.formatMoney(data.amount1));
                                 }
                                 $("#od-id").html(data.code);
                                 //地址信息

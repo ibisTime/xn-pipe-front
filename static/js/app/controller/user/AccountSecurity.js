@@ -34,7 +34,7 @@ define([
 						},
 						defaultName: nickname
 					});
-                    console.log(res.data.mobile)
+                    // console.log(res.data.mobile)
                     
                     if(res.data.mobile==""||res.data.mobile==null){
                         $("#mobileName").html("绑定手机号");
@@ -129,6 +129,7 @@ define([
 	}
 
 	function uploadAvatar(url, photo){
+		console.log(url, photo)
 		Ajax.post("805077", {
 			json: {
 				"userId": base.getUserId(),

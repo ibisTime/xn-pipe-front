@@ -10,3 +10,4 @@ var THUMBNAIL_SUFFISTORE = '?imageMogr2/auto-orient/thumbnail/!750x370';
 var THUMBNAIL_SUFFIN = '?imageMogr2/auto-orient/thumbnail/!375x180r';
 var THUMBNAIL_SUFFIU = '?imageMogr2/auto-orient/thumbnail/!130x130r';
 var THUMBNAIL_SUFFINEWS = '?imageMogr2/auto-orient/thumbnail/!160x100r';
+var THUMBNAIL_SUFFIDEMAND = '?imageMogr2/auto-orient/thumbnail/!100x100r';

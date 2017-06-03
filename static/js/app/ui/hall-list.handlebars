@@ -1,15 +1,48 @@
 {{#each items}}
-	<div class="wp100 show over-hide re">
-	<a href="./detail.html?code={{code}}" class="wp100 show over-hide">
-		<img src="{{formatListImage pic}}" class="wp100 com-img show">
-		<div class="wp100 plr15 ba p-r">
-	        <div class="fs14 pt10 pb8">{{dealer.name}}</div>
-	   	    <div class="fs13 "> {{summary}}</div>
-	    	<div class="fs12 ptb6 co9">地点：{{province}}{{city}}{{area}} {{address}}</div>
-	  	    <div class="fs12 co9">时间：{{formateDate startDatetime}}～{{formateDate endDatetime}}</div>
-	   	    <div class="fs16 ptb15 red inline_block">￥{{price}}</div>
-		</div>
-    </a>
-    <div class="Then-live tc lh27 inline_block p-a fs14 demandBtn" data-code="{{code}}" >确认接活</div>
-    </div>
+	{{#if summary}}
+			<div class="wp100 show over-hide re mb4" style="top: 2.5rem">
+			<a href="./detail.html?code={{code}}" class="wp100 show over-hide">
+				<img src="{{formatListImage pic}}" class="wp100 com-img show">
+				<div class="wp100 plr15 ba p-r">
+			        <div class="fs14 pt10 pb8">{{dealer.name}}</div>
+			   	    <div class="fs13 "> {{summary}}</div>
+			    	<div class="fs12 ptb6 co9">地点：{{province}}{{city}}{{area}} {{address}}</div>
+			  	    <div class="fs12 co9">时间：{{formateDate startDatetime}}～{{formateDate endDatetime}}</div>
+			   	    <div class="fs16 ptb15 red inline_block">￥{{price}}</div>
+				</div>
+		    </a>
+		    <div class="conBtn">
+		    	<div class="Then-live tc lh27 inline_block p-a fs14 demandBtn" data-code="{{code}}" >确认接活</div>	
+		    </div>
+		    </div>
+
+    {{else if demand.summary}}
+    	<!-- <div class="wp100 show over-hide re mb4" style="top: 2.5rem">
+    	<a href='../user/demand-order-detail.html?code={{code}}' class="wp100 show over-hide">
+    		<img src="{{formatListImage dealer.pic}}" class="wp100 com-img show">
+    		<div class="wp100 plr15 ba p-r">
+    	        <div class="fs14 pt10 pb8">{{dealer.name}}</div>
+    	   	    <div class="fs13 "> {{demand.summary}}</div>
+    	    	<div class="fs12 ptb6 co9">地点：{{demand.address}}</div>
+    	  	    <div class="fs12 co9">时间：{{formateDate demand.startDatetime}}～{{formateDate demand.endDatetime}}</div>
+    	   	    <div class="fs12 pb15 pt6 red inline_block">￥{{demand.price}}</div> -->
+    		<!-- </div> -->
+        <!-- </a> -->
+        <!-- <div href="#" class="Then-live tc lh27 inline_block p-a fs14 " data-code="{{code}}" >已结束</div> -->
+        </div>
+    {{else}}
+		<div class="wp100 show over-hide re mb4">
+		<a href="../user/demand-detail-dealer.html?code={{code}}" class="wp100 show over-hide">
+			<img src="{{formatListImage pic}}" class="wp100 com-img show">
+			<div class="wp100 plr15 ba p-r">
+		        <div class="fs14 pt10 pb8">{{name}}</div>
+		   	    <div class="fs13 "> {{owner}}</div>
+		    	<div class="fs12 ptb6 co9">地点：{{province}}{{city}}{{area}} {{address}}</div>
+		  	    <div class="fs12 co9">更新时间：{{formateDate updateDatetime}}</div>
+		   	    <div class="fs12 pb15 pt6 red inline_block">联系电话：{{mobile}}</div>
+			</div>
+	    </a>
+	    <div href="tel://{{mobile}}" class="Then-live tc lh27 inline_block p-a fs14 demandBtn0" data-code="{{code}}" >确认联系</div>
+	    </div>
+    {{/if}}
 {{/each}}

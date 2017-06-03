@@ -109,7 +109,8 @@ define([
                     var data = response.data,
                         html = "",
                         totalCount = 0,
-                        cnyTotalCount = 0;
+                        cnyTotalCount = 0,
+                        rmbTotalCount = 0;
                     if (data.length) {
                         var items = [],
                             flag = false,
@@ -118,7 +119,8 @@ define([
                         for (var i = 0, len = code.length; i < len; i++) {
                             var d = data[code[i]];
                             var eachCount = 0,
-                                cnyEachCount = 0;
+                                cnyEachCount = 0,
+                                rmbEachCount = 0;
                             if (d.product.price3 && +d.product.price3) {
                                 eachCount = (+d.product.price2) * (+d.quantity);
                                 d.price2 = base.formatMoney(d.product.price2);
@@ -127,8 +129,13 @@ define([
                                 cnyEachCount = (+d.product.price3) * (+d.quantity);
                                 d.price3 = base.formatMoney(d.product.price3);
                             }
+                            if (d.product.price1 && +d.product.price1) {
+                                rmbEachCount = (+d.product.price1) * (+d.quantity);
+                                d.price1 = base.formatMoney(d.product.price1);
+                            }
                             totalCount += eachCount;    //菜狗币'
                             cnyTotalCount += cnyEachCount;  //积分
+                            rmbTotalCount += rmbEachCount;  //人民币
                             html += '<li class="ptb8 clearfix b_bd_b plr10" modelCode="' + d.code + '">' +
                                 '<a href="../mall/buy.html?code=' + d.productCode + '" class="show p_r min-h100p">' +
                                 '<div class="order-img-wrap tc default-bg"><img class="center-img1" src="' +PIC_PREFIX+ d.product.advPic + '"/></div>' +
@@ -137,11 +144,14 @@ define([
                                 '</div>' +
                                 '<div class="fl wp40 tr s_10">';
                             if (d.price3) {
-                                html += '<p><span class="item_totalP">' + d.price3 + '</span><span class="t_40pe s_09 pl4">积分</span></p>';
+                                html += '<p><span class="item_totalP">' + d.price3 + '</span><span class="t_40pe s_09 pl4">积分</span>';
+                            }
+                            if (d.price1) {
+                                html += '/<span class="item_totalR">' + d.price1 + '</span><span class="t_40pe s_09 pl4">元 </span>';
                             }
                             html += '<p class="t_80">×<span>' + d.quantity + '</span></p></div></div></a></li>';
                         }
-                        html += '</ul>';
+                        html += '</p></ul>';
                         $("#cont").hide();
                         $("#items-cont").append(loadImg.loadImg(html));
                         if(cnyTotalCount){
@@ -151,6 +161,10 @@ define([
                         if (cnyTotalCount) {
                             $("#mAdd, #JFDiv").removeClass("hidden");
                             $("#totalJFAmount").html(base.formatMoney(cnyTotalCount));
+                        }
+                        if (rmbTotalCount) {
+                            $("#mAdd, #RMBDiv").removeClass("hidden");
+                            $("#totalRMBAmount").html(base.formatMoney(rmbTotalCount));
                         }
                     } else {
                         $("#cont").hide();
@@ -179,6 +193,11 @@ define([
                         var totalJFAmount = +data.price3 * +q;
                         $("#totalJFAmount").html(base.formatMoney(totalJFAmount));
                     }
+                    if(data.price1){    //人民币
+                        $("#mAdd, #RMBDiv").removeClass("hidden");
+                        var totalRMBAmount = +data.price1 * +q;
+                        $("#totalRMBAmount").html(base.formatMoney(totalRMBAmount));
+                    }
 
                     html += '<ul class="b_bd_b">' +
                         '<li class="ptb8 clearfix b_bd_b plr10" modelCode="' + data.productCode + '">' +
@@ -192,6 +211,9 @@ define([
                    
                     if (data.price3) {
                         html += '<p><span class="item_totalP">' + base.formatMoney(data.price3) + '</span><span class="t_40pe s_09 pl4">积分</span></p>';
+                    }
+                    if (data.price1) {
+                        html += '<p><span class="item_totalP">' + base.formatMoney(data.price1) + '</span><span class="t_40pe s_09 pl4">元</span></p>';
                     }
                     html += '<p class="t_80">×<span>' + q + '</span></p></div></div></a></li></ul>';
 

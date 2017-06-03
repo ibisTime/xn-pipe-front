@@ -76,8 +76,8 @@ define([
                                     html += "+" + base.formatMoney(d.price3) + '<span class="s_10 t_40pe pl4">积分</span>';
                                 }
                                 html += '</p>';
-                                if (d.originalPrice) {
-                                    html += '<p class="s_10 t_through">市场参考价：<span>' + base.formatMoney(d.originalPrice) + '</span>元</p>';
+                                if (d.originalPrice1) {
+                                    html += '<p class="s_10 t_through">市场参考价：<span>' + base.formatMoney(d.originalPrice1) + '</span>元</p>';
                                 }
                                 html += '</div></a></li>';
                             });

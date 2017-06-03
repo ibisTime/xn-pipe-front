@@ -73,6 +73,7 @@ define([
                                 var invoices = cl.productOrderList,
                                     totalAmount = cl.amount2,
                                     totalJFAmount = cl.amount3,
+                                    totalRMBAmount = cl.amount1,
                                     code = cl.code;
                                 html += '<li class="clearfix b_bd_b b_bd_t bg_fff mt10" code="' + code + '">' +
                                     '<a class="show plr10" href="./order_detail.html?code=' + code + '" class="show">' +
@@ -88,11 +89,14 @@ define([
                                         '</div>' +
                                         '<div class="fl wp40 tr pt12">';
                                     if (invoice.price3) {
-                                        html += '<p class="item_totalP">' + base.formatMoney(invoice.price3) + '<span class="t_40pe s_09 pl4">积分</span></p>';
+                                        html += '<p class="item_totalP">' + base.formatMoney(invoice.price3) + '<span class="t_40pe s_09 pl4">积分</span>';
                                     }
-                                    html += '<p class="t_80">×<span>' + invoice.quantity + '</span></p>' +
+                                    if (invoice.price1) {
+                                        html += '/' + base.formatMoney(invoice.price1) + '<span class="t_40pe s_09 pl4">元</span>';
+                                    }
+                                    html += '</p><p class="t_80">×<span>' + invoice.quantity + '</span></p>' +
                                         '<p>&nbsp;</p>' +
-                                        '<p class="ol_total_p right0">总计:<span class="pl4">' + base.formatMoney(cl.amount3) + "积分" + '</span></p>' +
+                                        '<p class="ol_total_p right0">总计:<span class="pl4">' + base.formatMoney(cl.amount3) + "积分" + "/" + base.formatMoney(cl.amount1) + "元" +'</span></p>' +
                                         '</div></div>';
                                 } else {
                                     html += '<div class="wp100 clearfix ptb4 p_r">';

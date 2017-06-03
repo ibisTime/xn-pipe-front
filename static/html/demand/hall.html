@@ -6,43 +6,47 @@
     <title>需求大厅</title>
 </head>
 <body class="bc">
-    <div class="wp100 plr15 bb tc ba lh44">   
-    	<div class="fs18 inline_block">需求大厅</div>
-    	<div class="fs15 inline_block p-a city" id="headDW"></div>
+    <div class="wp100 plr15 bb tc ba lh44 orderNavBar ">   
+    	<div class="fs18 inline_block wp40 order red orderNav" id="need">附近需求</div>
+        <div class="fs18 inline_block wp40 ml40 orderNav" id="agency">附近经销商</div>
+    	<!-- <div class="fs15 inline_block p-a city" id="headDW"></div> -->
     </div>
-    <div class="wp100 scroll-wrapper" id="wrapper">
-        <div id="scroll">
-            <div id="pullDown" class="idle">
-                <div class="pullDownLabel">
-                    <div class="bounce1"></div>
-                    <div class="bounce2"></div>
-                    <div class="bounce3"></div> 
-                    <div class="bounce4"></div> 
+    <div id="content">
+        <div id="needMenu"></div>
+            <div id="scroll">
+                <div id="pullDown" class="idle">
+                    <div class="pullDownLabel">
+                        <div class="bounce1"></div>
+                        <div class="bounce2"></div>
+                        <div class="bounce3"></div> 
+                        <div class="bounce4"></div> 
+                    </div>
                 </div>
-            </div>
-            <div id="content">
-                <!--<a href="./detail.html" class="wp100 show over-hide">
-                	<img src="../images/banner@2x.png" class="wp100 com-img show">
-                	<div class="wp100 plr15 ba p-r">
-                        <div class="fs14 pt10 pb8">金华聚牛网络科技有限公司</div>
-                   	    <div class="fs13 "> 卫生间水管施工</div>
-                    	<div class="fs12 ptb6 co9">地点：金华市光南路149号 联建楼一期</div>
-                  	    <div class="fs12 co9">时间：2017-02-10</div>
-                   	    <div class="fs14  ptb15 red inline_block">¥299/㎡</div>
-                        <div class="Then-live tc lh27 inline_block p-a fs14">确认接活</div>
-                	</div>
-                </a>-->
-
-            </div>
-            <div id="pullUp" class="idle">
-                <div class="pullUpLabel">
-                    <div class="bounce1"></div>
-                    <div class="bounce2"></div>
-                    <div class="bounce3"></div>
-                    <div class="bounce4"></div>
+                
+                    <div class="wp100 scroll-wrapper mt1" id="wrapper">
+                    <div id="needList"></div>
+                    <!--<a href="./detail.html" class="wp100 show over-hide">
+                    	<img src="../images/banner@2x.png" class="wp100 com-img show">
+                    	<div class="wp100 plr15 ba p-r">
+                            <div class="fs14 pt10 pb8">金华聚牛网络科技有限公司</div>
+                       	    <div class="fs13 "> 卫生间水管施工</div>
+                        	<div class="fs12 ptb6 co9">地点：金华市光南路149号 联建楼一期</div>
+                      	    <div class="fs12 co9">时间：2017-02-10</div>
+                       	    <div class="fs14  ptb15 red inline_block">¥299/㎡</div>
+                            <div class="Then-live tc lh27 inline_block p-a fs14">确认接活</div>
+                    	</div>
+                    </a>-->
+                <div id="pullUp" class="idle">
+                    <div class="pullUpLabel">
+                        <div class="bounce1"></div>
+                        <div class="bounce2"></div>
+                        <div class="bounce3"></div>
+                        <div class="bounce4"></div>
+                    </div> 
                 </div>
             </div>
         </div>
+
     </div>
 
     <link rel="import" href="../footer.html?__inline">

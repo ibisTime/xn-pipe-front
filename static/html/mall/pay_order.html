@@ -11,6 +11,21 @@
     <div class="wp100 plr10 ptb20 lh2em p_r bg_fff s_10" id="addressDiv"></div>
     <div class="pl10 t_80 s_10 ptb4">购物清单</div>
     <div id="items-cont" class="wp100 lh1_5em p_r t_323232 s_10 bg_fff"></div>
+    <div class="pl10 t_80 s_10 ptb4">支付方式</div>
+    <div id="content">
+        <div id="yeCont" class="pay-item mt0 active">
+            <img src="../../images/kyye-icon.png?__inline" class="pay-item-img" />
+            <div class="pl34">余额支付
+            <!-- ，可用余额 <span class="blue fs13p">¥</span><span class="blue" id="CNYAmount"></span> -->
+            </div>
+            <div class="chose-icon circle-icon"></div>
+        </div>
+        <div id="wxCont" class="pay-item mt0">
+            <img src="../../images/wechat.png?__inline" class="pay-item-img" />
+            <div class="pl34">微信支付</div>
+            <div class="chose-icon circle-icon"></div>
+        </div>
+    </div>
 </div>
 <i id="cont" class="icon-loading"></i>
 <i id="loaddingIcon" class="icon-loading bg_transparent hidden top_0"></i>
@@ -28,6 +43,7 @@
     	<div class="t_f64444 va-m lh1_2em inline_block s_11">
             <div class="hidden"><span><span id="totalAmount"></span><span class="s_11 t_40pe">菜狗币</span><span class="hidden" id="mAdd">+</span></span></div>
             <div class="hidden" id="jfDiv"><span><span id="totalJFAmount"></span><span class="s_11 t_40pe">积分</span></span></div>
+            <div class="hidden" id="rmbDiv"><span><span id="totalRMBAmount"></span><span class="s_11 t_40pe">元</span></span></div>
         </div>
     </div>
     <div class="wp40 fl bg_f64444 t_white lh3_1em" id="sbtn">支付订单</div>

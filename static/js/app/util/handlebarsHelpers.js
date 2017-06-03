@@ -1,6 +1,14 @@
 define([
     'Handlebars'
 ], function(Handlebars) {
+    Handlebars.registerHelper('formatBtn', function(status, options){
+        if(!status && status == 1){
+           return $(".conBtn").html('<div class="Then-live tc lh27 inline_block p-a fs14 demandBtn" data-code="{{code}}" >确认接活</div>')  
+        }else{
+            return $(".conBtn").html('<div class="Then-live tc lh27 inline_block p-a fs14 demandBtn" data-code="{{code}}" >顺利结束</div>') 
+        }
+
+    });
     Handlebars.registerHelper('formatMoney', function(num, options){
         if(!num && num !== 0)
             return "--";
@@ -42,6 +50,14 @@ define([
             pic = pic.split(/\|\|/)[0];
         }
         return pic ? (PIC_PREFIX + pic + THUMBNAIL_SUFFINEWS) : 
+            (isAvatar && !isAvatar.name) ? defaultAvatar : "";
+    });
+    Handlebars.registerHelper('formatImageDemand', function(pic, isAvatar, options){
+        var defaultAvatar = __inline("../images/default-avatar.png");
+        if(pic){
+            pic = pic.split(/\|\|/)[0];
+        }
+        return pic ? (PIC_PREFIX + pic + THUMBNAIL_SUFFIDEMAND) : 
             (isAvatar && !isAvatar.name) ? defaultAvatar : "";
     });
     Handlebars.registerHelper('formatNoSuffixImage', function(pic, isAvatar, options){

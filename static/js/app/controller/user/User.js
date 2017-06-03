@@ -109,6 +109,10 @@ define([
                 BindMobile.showMobileCont()
             }
         });
+
+        $("#signBtn").on("click",function(){
+            location.href = "./sign-in.html?";
+        })
     }
 
     function getUser(refresh) {

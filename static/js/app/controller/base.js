@@ -140,6 +140,9 @@ define([
         getImg1: function(pic){
             return pic ? (PIC_PREFIX + pic + THUMBNAIL_SUFFISTORE) : "";
         },
+        getImg2: function(pic){
+            return pic ? (PIC_PREFIX + pic + THUMBNAIL_SUFFIDEMAND) : "";
+        },
         getUrlParam: function(name, locat) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
             var r = (locat || window.location.search).substr(1).match(reg);

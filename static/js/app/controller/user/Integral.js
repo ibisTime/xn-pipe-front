@@ -53,6 +53,7 @@ define([
                     if (d.currency == config.currency) {
                         amount = base.formatMoney(d.amount);
                         config.accountNumber = d.accountNumber;
+                        config.companyCode = d.companyCode;
                         $("#balance").html("积分余额：" + amount);
                     }
                 });

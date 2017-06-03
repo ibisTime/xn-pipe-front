@@ -63,27 +63,29 @@ define([
         function addListeners() {
             $("#subCount").on("click", function() {
                 var orig = $("#buyCount").val();
-                var JF;
+                var JF,RMB;
                 if (orig == undefined || orig == "" || orig == "0" || orig == "1") {
                     orig = 2;
                 }
                 orig = +orig - 1;
                 JF =  rspData.price3 ? (rspData.price3/1000)*orig +"积分" : "";
+                RMB =  msl.price1 ? (msl.price1/1000)*buyCount +"元" : "";
                 $("#buyCount").val(orig);
                 $("#buyCount").change();
-                $(".JF").text(JF);
+                $(".JF").text(JF+'/'+RMB);
             });
             $("#addCount").on("click", function() {
                 var orig = $("#buyCount").val();
-                var JF;
+                var JF,RMB;
                 if (orig == undefined || orig == "") {
                     orig = 0;
                 }
                 orig = +orig + 1;
                 JF =  rspData.price3 ? (rspData.price3/1000)*orig +"积分" : "";
+                RMB =  msl.price1 ? (msl.price1/1000)*buyCount +"元" : "";
                 $("#buyCount").val(orig);
                 $("#buyCount").change();
-                $(".JF").text(JF);
+                $(".JF").text(JF+'/'+RMB);
 
             });
             $("#buyCount").on("keyup", function(e) {
@@ -130,11 +132,13 @@ define([
             }
             $("#btr-name").text(msl.name);
             var price3 = msl.price3 ? msl.price3/1000+"积分":"";
-            $("#cnyPrice").text(price3);
+            var price1 = msl.price1 ? msl.price1/1000+"元":"";
+            $("#cnyPrice").text(price3+'/'+price1);
             $("#btr-description").append(msl.description);
             var buyCount = $("#buyCount").val();
             var JF =  msl.price3 ? (msl.price3/1000)*buyCount +"积分" : "";
-            $(".JF").text(JF)
+            var RMB =  msl.price1 ? (msl.price1/1000)*buyCount +"元" : "";
+            $(".JF").text(JF+'/'+RMB)
         }
 
         function isNumber(code) {

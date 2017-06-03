@@ -27,10 +27,38 @@
 		</a>
 		<div class="mt20 bg_fff p10 wp100">需求详情</div>
 		<div class="demandNote"></div>
-    </div>
+		<!-- <div class="mt20 bg_fff p10 wp100">施工图上传</div> -->
+		<!-- <div id="uploadContainer">
+			<div class=" tc lh2rem picBtn" id="uploadBtn">上传图片</div>
+			<div class=" bg_fff p10 wp100" id="showAvatar">
+			</div>
+			<div class=" tc lh2rem picBtn" id="subBtn" >提交</div>
+			<input type="file" name="图片上传" value="" class=" tc lh2rem"  multiple="multiple" id="uploadBtn">
+		</div> -->
+		<div class="mt20 ">
+			<div class="bg_fff p10 wp100 construct hidden" style=" border-bottom: 1px solid #ededed;" >施工图</div>
+			<form id="travelForm"  class="bg_fff p10 wp100">
+				<div class="fs15 ba lh50 wp100 plr10 bb p-r" id="uploadContainer">
+					<div class="upload-pic-wrap hidden">
+						<div class="p-r">
+							<input type="text" class="upload-pic-wrap-input" name="pic" id="pic">
+						</div>
+					</div>
+					<div class=" inline_block fs11">上传图片</div>
+				    <div class="chose-img-wrap" id="uploadBtn"><img src="../../images/upload-img.png" class="take"></div>
+				</div>
+				<div class="plr10 pb10 ba bb clearfix hidden" id="showImgContainer"></div>
+			</form>
+		</div>
+		<div class=" plr10 mt40 Btn">
+			<input type="button" id="submitBtn" value="提交" class="but wp100 fs15">
+		</div>
+	 </div>
 
 
 	<link rel="import" href="../footer.html?__inline">
+	<script type="text/javascript" src="../../js/lib/qiniu/plupload.full.min.js"></script>
+	<script type="text/javascript" src="../../js/lib/qiniu/qiniu.min.js"></script>
     <script data-loader>
         require(['app/controller/user/DemandOrderDetail']);
     </script>
