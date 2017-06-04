@@ -1,6 +1,6 @@
 {{#each items}}
 	{{#if summary}}
-			<div class="wp100 show over-hide re mb4" style="top: 2.5rem">
+			<div class="wp100 show over-hide re mb4">
 			<a href="./detail.html?code={{code}}" class="wp100 show over-hide">
 				<img src="{{formatListImage pic}}" class="wp100 com-img show">
 				<div class="wp100 plr15 ba p-r">
@@ -12,7 +12,7 @@
 				</div>
 		    </a>
 		    <div class="conBtn">
-		    	<div class="Then-live tc lh27 inline_block p-a fs14 demandBtn" data-code="{{code}}" >确认接活</div>	
+		    	<div class="Then-live tc lh27 inline_block p-a fs14 demandBtn" data-status="{{status}}" data-code="{{code}}">{{formatDemandStatus status}}</div>
 		    </div>
 		    </div>
 

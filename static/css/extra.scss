@@ -13,6 +13,9 @@
     @extend %scrollWrap;
     top: 45px;
 }
+.scroll-wrapper.scroll-wrapper1{
+	top: 87px;
+}
 .user-scroll-wrapper{
     @extend %scrollWrap;
     top: 0;
@@ -22,7 +25,7 @@
     top: 40px;
     bottom: 0;
 }
- 
+
 @keyframes bouncedelay {
   0%, 80%, 100% {
     transform: scale(0.0);
@@ -338,4 +341,7 @@
 
 .list-item-default-arrow .fwrx-icon {
     background-image: url(../images/fwrx-icon.png?__inline);
+}
+.fs08rem{
+	font-size: .8rem;
 }

@@ -47,17 +47,15 @@ define([
 				var imgCtnArr = [];
 				var file_id = []
 				if (res1.data.pic) {
-					imgCtnArr = res1.data.pic.split(/\,/);
+					imgCtnArr = res1.data.pic.split(/\|\|/);
 					showImgContainer.show();
 				}
 				console.log(res1.data.status)
 				if (res1.data.status == 0){
 						for (var i = 0; i < imgCtnArr.length; i++) {
-							// file_id =  imgCtnArr[i].split(/\_/);console.log(file_id)
 							imgCtn = $('<div class="wp33 pt10 plr6 p-r fl"  id="'+imgCtnArr[i]+'">'+
 					                    '<div class="write-travel-img-wrap" style="height: '+width+'px">'+
 					                        '<img src="'+
-					                        // PIC_PREFIX+imgCtnArr[i]
 					                        base.getImg2(imgCtnArr[i])
 					                        +'" class="center-img wp100 hp100" data-src="'+imgCtnArr[i]+'" >'+
 					                    '</div>'+
@@ -73,21 +71,21 @@ define([
 		                                showImgContainer.hide();
 		                            }
 		                            var pic = $("#pic").val();
-		                            pic = pic.split(/\,/);
+		                            pic = pic.split(/\|\|/);
 		                            for(var i = 0; i < pic.length; i++){
 		                                if(pic[i] == key){
 		                                    pic.splice(i, 1);
 		                                    break;
 		                                }
 		                            }
-		                            $("#pic").val(pic.join(","));
+		                            $("#pic").val(pic.join("||"));
 							        imgCtn.remove();
 							    });
 							})(imgCtn, imgCtnArr[i])
 
 							var pic = $("#pic").val();
 		                    if(pic)
-		                        pic = pic + ',' + imgCtnArr[i];
+		                        pic = pic + '||' + imgCtnArr[i];
 		                    else
 		                        pic = imgCtnArr[i];
 		                    $("#pic").val(pic).valid();
@@ -115,7 +113,7 @@ define([
                 	});
 			}
 
-				
+
 				$(".order-code").html("订单号："+ocode);
 				$(".order-uDate").html("下单时间："+oData);
 				$(".order-stutas").html("订单状态："+oStutas);
@@ -133,7 +131,7 @@ define([
 				// $("#showAvatar").attr("src",PIC_PREFIX+res1.data.pic)
 				// $("#showAvatar").append(html)
 
-				
+
 	    		loading.hideLoading();
     		}else{
     			base.showMsg(res1.msg)
@@ -239,14 +237,14 @@ define([
 	                                }
 	                                var key = $("#" + id).find(".center-img").attr("data-src");
 	                                var pic = $("#pic").val();
-	                                pic = pic.split(/\,/);
+	                                pic = pic.split(/\|\|/);
 	                                for(var i = 0; i < pic.length; i++){
 	                                    if(pic[i] == key){
 	                                        pic.splice(i, 1);
 	                                        break;
 	                                    }
 	                                }
-	                                $("#pic").val(pic.join(","));
+	                                $("#pic").val(pic.join("||"));
 	                                imgCtn.remove();
 	                            });
 	                        })(imgCtn, file.id)
@@ -257,7 +255,7 @@ define([
 	                            .attr("data-src", key).removeClass("hp100 wp100");
 	                        var pic = $("#pic").val();
 	                        if(pic)
-	                            pic = pic + ',' + key;
+	                            pic = pic + '||' + key;
 	                        else
 	                            pic = key;
 	                        $("#pic").val(pic).valid();
@@ -277,7 +275,7 @@ define([
 	    data.code = code
 	    console.log(data)
 	    Ajax.post("619063", {
-	        json: data 
+	        json: data
 
 	    }).then(function(res){
 	        loading.hideLoading();

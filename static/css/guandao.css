@@ -89,6 +89,7 @@ margin-right: 10px;color:#ffffff;}
     bottom: 0;
     margin-right: 15px;
     margin-bottom: 12px;}
+.disabled.Then-live{background-color: #fff;color: #008000;}
 .Then-live0{width:80px;background-color:#fff;color:#ffffff; border-radius:3px;color: #ff5d38;
  right: 0;
  bottom: 0;
@@ -229,7 +230,6 @@ margin-right: 10px;color:#ffffff;}
 }
 #needList{
 	position: relative;
-	top: -1.7rem;
 }
 #allItem{
 	position: absolute;
