@@ -39,6 +39,8 @@ fis.match('**/*.scss', {
 });
 fis.match('*.{js,css}', {
     useHash: true
+}).match('config.js', {
+    useHash: false
 });
 
 //npm install -g fis-parser-handlebars-3.x
@@ -55,9 +57,6 @@ fis.match('::package', {
         useInlineMap: true
     })
 });
-// fis.match('/js/module/**', {
-//     isMod: true
-// });
 fis.media("prod")
     .match('::package', {
         postpackager: fis.plugin('loader', {
@@ -74,11 +73,8 @@ fis.media("prod")
         packTo: '/pkg/common.js',
         packOrder: -90
     })
-    .match('/js/module/**', {
-        requires: ['/js/require.js']
-    })
-    .match('{/js/lib/*.js,/js/app/util/*.js,/js/app/controller/base.js,/js/app/module/loading/loading.js}', {
-        requires: ['/js/require.js'],
+    .match('{/js/app/util/ajax.js,/js/app/util/dialog.js,/js/app/module/loading/loading.js,/js/lib/iscroll1.js}', {
+        requires: ['/js/require.js', '/js/lib/jquery-2.1.4.js'],
         packTo: '/pkg/common.js'
     })
     .match("**.js", {
@@ -86,6 +82,11 @@ fis.media("prod")
     })
     .match("**.css", {
         optimizer: fis.plugin('clean-css')
+    })
+    .match('/js/app/config.js', {
+        optimizer: null,
+        packTo: '/config/config.js',
+        useHash: false
     })
     .match("/css/*.css", {
         packTo: '/pkg/common.css'
