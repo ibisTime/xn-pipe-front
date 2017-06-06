@@ -31,6 +31,7 @@
 .pt4{padding-top:4px;}
 .pt5{padding-top:5px;}
 .pb2{padding-bottom:2px;}
+.top29{top: 2.9rem;}
 .xxx:after{
 	display: inline-block;
 	width:0;
@@ -89,7 +90,7 @@ margin-right: 10px;color:#ffffff;}
     bottom: 0;
     margin-right: 15px;
     margin-bottom: 12px;}
-.disabled.Then-live{background-color: #fff;color: #008000;}
+.disabled.Then-live{background-color: #fff;color: #008000;background-image: url(../images/已完成.png);background-size:5rem;width: 5rem;height: 5rem;}
 .Then-live0{width:80px;background-color:#fff;color:#ffffff; border-radius:3px;color: #ff5d38;
  right: 0;
  bottom: 0;
@@ -198,12 +199,10 @@ margin-right: 10px;color:#ffffff;}
 
 .up-arrow {
     background-image: url(../images/up-arrow.png);
-    top: 2.9rem;
 }
 
 .down-arrow {
     background-image: url(../images/down-arrow.png);
-    top: 2.9rem;
 }
 .mall-mask {
     background: rgba(0, 0, 0, .5);

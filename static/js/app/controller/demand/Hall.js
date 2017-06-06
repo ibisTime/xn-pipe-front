@@ -30,7 +30,7 @@ define([
         addListener();
     }
     function initConfig() {
-        var cLongitude = sessionStorage.getItem("dw-latitude");
+        var cLongitude = sessionStorage.getItem("dw-longitude");
         var cLatitude = sessionStorage.getItem("dw-latitude");
         config = {
             longitude: cLongitude,
@@ -45,7 +45,7 @@ define([
     function getInitData() {
         loading.createLoading();
         Handlebars.registerHelper('formatDemandStatus', function(status, options){
-            return status == "1" ? "确认接活" : "已完成";
+            return status == "1" ? "确认接活" : "";
         });
         $.when(
             getHallList(true),

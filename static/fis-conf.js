@@ -85,8 +85,7 @@ fis.media("prod")
     })
     .match('/js/app/config.js', {
         optimizer: null,
-        packTo: '/config/config.js',
-        useHash: false
+        packTo: '/config/config.js'
     })
     .match("/css/*.css", {
         packTo: '/pkg/common.css'

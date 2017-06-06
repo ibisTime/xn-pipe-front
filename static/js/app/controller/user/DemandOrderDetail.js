@@ -50,7 +50,7 @@ define([
 					imgCtnArr = res1.data.pic.split(/\|\|/);
 					showImgContainer.show();
 				}
-				console.log(res1.data.status)
+
 				if (res1.data.status == 0){
 						for (var i = 0; i < imgCtnArr.length; i++) {
 							imgCtn = $('<div class="wp33 pt10 plr6 p-r fl"  id="'+imgCtnArr[i]+'">'+
@@ -282,7 +282,11 @@ define([
 	        if(res.success){
 	  			location.href = './demand-order-list.html';
 	        }else{
-	            base.showMsg(res.msg);
+	        	if (data.pic == "") {
+	        		base.showMsg("请上传施工图片");
+	        	}else{
+	        		base.showMsg(res.msg);
+	        	}  
 	        }
 	    }, function(){
 	        loading.hideLoading();

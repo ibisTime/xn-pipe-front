@@ -4,7 +4,7 @@
   "description": "",
   "main": "fis-conf.js",
   "scripts": {
-    "server": "fis3 release -d ../dist -w",
+    "server": "fis3 release -d ../../../xn-pipe-front/dist -w",
     "prod": "fis3 release -d ../dist prod"
   },
   "author": "",
