@@ -74,7 +74,8 @@ define([
                 if (data.isDZ) {
                     $("#goodImg").attr("src", "/static/images/good1.png");
                 }
-                $("#pic1").attr("src", base.getImg1(data.pic, 1));
+                $("#pic1").attr("src", base.getMorePic(data.pic)[0]);
+
                 $("#name").text(data.name);
                 $("#totalDzNum").text(data.totalDzNum);
                 $("#advert").text(data.advert);

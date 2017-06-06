@@ -51,7 +51,7 @@ define([
                                     RMB = (+cl.product.price1) * (+cl.quantity);
                                     $("#rmbSpan, #mAdd").removeClass("hidden");
                                 }
-                                html += '<li class="ptb8 plr10 clearfix b_bd_b p_r" code="' + cl.code + '" saleP="' + cl.product.price2 + '" cnyP="' + (cl.product.price3+'/'+cl.product.price1 || 0) + '">' +
+                                html += '<li class="ptb8 plr10 clearfix b_bd_b p_r" code="' + cl.code + '" saleP="' + cl.product.price2 + '" cnyP="' + (cl.product.price3 || 0) +  '" rmbP="' + (cl.product.price1 || 0) + '">' +
                                     '<div class="wp100 p_r z_index0">' +
                                     '<div class="clearfix bg_fff cart-content-left">';
 
@@ -182,7 +182,8 @@ define([
                     me.val("1");
                 }
                 var gp = $(this).parents("li[code]"),
-                    cnyPrice = +gp.attr("cnyP");    //积分
+                    cnyPrice = +gp.attr("cnyP"),    //积分
+                    rmbPrice = +gp.attr("rmbP");    //人民币
                 var param2 = {
                     "code": gp.attr("code"),
                     "quantity": this.value
@@ -200,8 +201,10 @@ define([
                                 $prev = $(me).prev(),
                                 count = me.value,
                                 cnyUnit =cnyPrice,  //积分
+                                rmbUnit = rmbPrice,
                                 //当前商品最新积分总价
                                 new_cnyAmount = cnyUnit * (+count),
+                                new_rmbAmount = rmbUnit * (+count),
                                 info = infos[gp.index()],
 //                              //当前商品老的积分总价
                                 ori_cnyAmount = info[1],
@@ -210,19 +213,19 @@ define([
                                 //当前商品人民币总价
                                 ori_rmbAmount = info[2],
                                 //已经勾选的商品人民币总价
-                                ori_cnyTotal = +$("#totalRMB").data('price'),
+                                ori_rmbTotal = +$("#totalRMB").data('price');
                             //已经勾选的商品最新的人民币总价
-                            new_cnyTotal = new_cnyAmount - ori_cnyAmount + ori_cnyTotal;
-                            new_rmbTotal = new_rmbTotal - ori_rmbAmount + ori_rmbTotal;
+                            new_cnyTotal = new_cnyAmount - ori_cnyAmount + ori_cnyTotal,
+                            new_rmbTotal = new_rmbAmount - ori_rmbAmount + ori_rmbTotal;
                             //更新当前商品的总价
                             infos[gp.index()] = [0, new_cnyAmount, new_rmbTotal];
                             //保存当前商品最新的数量
                             $prev.val(count);
                             //如果当前商品处于被勾选的状态，则更新页面底部的总价
                             if (flag) {
-//                              $("#totalAmount").text(base.formatMoney(new_total)).data('price', new_total);
+                             // $("#totalAmount").text(base.formatMoney(new_total)).data('price', new_total);  
                                 $("#totalCnyAmount").text(base.formatMoney(new_cnyTotal)).data('price', new_cnyTotal);
-                                $("#totalRMB").text(base.formatMoney(new_cnyTotal)).data('price', new_rmbTotal);
+                                $("#totalRMB").text(base.formatMoney(new_rmbTotal)).data('price', new_rmbTotal);
                             }
                         } else {
                             me.value = $(me).prev().val();
@@ -251,7 +254,8 @@ define([
                 //如果目前处于全选状态，则更新页面底部的总价
                 if (flag) {
                     var t = 0,
-                        t1 = 0;
+                        t1 = 0,
+                        t2 = 0;
                     for (var i = 0; i < infos.length; i++) {
                         t += infos[i][0];
                         t1 += infos[i][1];

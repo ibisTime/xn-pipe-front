@@ -182,10 +182,10 @@ define([
                                     originalPrice = val.originalPrice ? val.originalPrice / 1000 : "",
                                     price2 = val.price2 ? val.price2 / 1000 + "菜狗币" : "",
                                     price3 = val.price3 ? val.price3 / 1000 + "积分" : "",
-                                    price1 = val.price1 ? val.price1 / 1000 + "元" : "",
+                                    price1 = val.price1 ? '/' + val.price1 / 1000 + "元" : "",
                                     code = val.code;
 
-                                var html2 = '<li class="ptb8 clearfix b_bd_b plr10"><a class="show p_r min-h100p" href="../mall/buy.html?code=' + code + '"><div class="order-img-wrap tc"><img class="center-img1" src="' + PIC_PREFIX + pic2 + '"></div><div class="order-right-wrap clearfix"><p class="t_323232 s_12 line-tow">' + name + '</p><p class="t_999 s_10 line-tow">' + slogan + '</p><p class="t_red"><span class="s_10 t_40pe pl4">' + price2 + '</span><span class="s_10 t_40pe pl4">' + price3 + '/' + price1 +'</span></p><p class="s_10 t_through">市场参考价：<span>' + originalPrice + '</span>元</p></div></a></li>';
+                                var html2 = '<li class="ptb8 clearfix b_bd_b plr10"><a class="show p_r min-h100p" href="../mall/buy.html?code=' + code + '"><div class="order-img-wrap tc"><img class="center-img1" src="' + PIC_PREFIX + pic2 + '"></div><div class="order-right-wrap clearfix"><p class="t_323232 s_12 line-tow">' + name + '</p><p class="t_999 s_10 line-tow">' + slogan + '</p><p class="t_red"><span class="s_10 t_40pe pl4">' + price2 + '</span><span class="s_10 t_40pe pl4">' + price3 + price1 +'</span></p><p class="s_10 t_through">市场参考价：<span>' + originalPrice + '</span>元</p></div></a></li>';
 
                                 removeLoading();
                                 $("#contUl").append(loadImg.loadImg(html2));

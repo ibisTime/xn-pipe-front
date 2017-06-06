@@ -138,7 +138,8 @@ define([
             return pic ? (PIC_PREFIX + pic + THUMBNAIL_SUFFIX) : "";
         },
         getImg1: function(pic){
-            return pic ? (PIC_PREFIX + pic + THUMBNAIL_SUFFISTORE) : "";
+            return pic ?
+             (PIC_PREFIX + pic + THUMBNAIL_SUFFISTORE) : "";
         },
         getImg2: function(pic){
             return pic ? (PIC_PREFIX + pic + THUMBNAIL_SUFFIDEMAND) : "";
@@ -237,6 +238,18 @@ define([
                 pic = PIC_PREFIX + pic + (suffix || THUMBNAIL_SUFFIX);
             }
             return pic;
+        },
+        getMorePic: function(pic){
+            if(pic){
+                pic = pic.split(/\|\|/);
+            }
+            pic = pic.map(function( p , i){
+                if(!/^http/i.test(p)){
+                    p = PIC_PREFIX + p ;
+                }
+                return p;
+            })
+           return pic; 
         },
         getBannerPic: function(pic, suffix){
             if(pic){

@@ -81,7 +81,11 @@ define([
                         }
                         //添加地址信息
 
-                        var addrHtml = '<p><span class="pr2em">总计</span>：<span class="pl_5rem">' + base.formatMoney(data.amount3) + "积分" +"/"+base.formatMoney(data.amount1) + "元" + '<span></span></p>' +
+                        var addrHtml = '<p><span class="pr2em">总计</span>：<span class="pl_5rem">' + base.formatMoney(data.amount3) + "积分";
+                        if (!base.formatMoney(data.amount1)) {
+                            addrHtml += "/"+base.formatMoney(data.amount1) + "元" ;
+                        } 
+                        addrHtml += '<span></span></p>' +
                             '<p><span class="pr1em">订单号</span>：<span class="pl_5rem">' + data.code + '</span></p>';
                         if (data.reAddress) {
                             addrHtml += '<p><span>配送信息：</span><span class="pl_5rem">' + data.receiver + '</span><span class="pl10">' + data.reMobile + '</span></p>' +
