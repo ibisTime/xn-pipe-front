@@ -101,7 +101,7 @@ define([
 
 					$("#find").hide();
 					$("#list1").hide();
-        			$("#list2").fadeIn(200);
+        			$("#list2").removeClass("hidden").fadeIn(200);
 
         			loading.hideLoading();
 				}else{//未听单

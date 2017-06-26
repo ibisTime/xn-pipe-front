@@ -345,3 +345,23 @@
 .fs08rem{
 	font-size: .8rem;
 }
+.write-progress-wrap {
+    height: 4px;
+    display: none;
+}
+
+.write-progress-up {
+    height: 4px;
+    background: #ffa200;
+    width: 0;
+}
+
+.pt19 {
+    padding-top: 19px;
+}
+.lh1_4{
+    line-height: 1.4;
+}
+*, :after, :before {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}

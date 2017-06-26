@@ -152,57 +152,6 @@ define([
 		}
 	}
 
-// 	function initUpload(){
-// 		qiniu.getQiniuToken()
-// 			.then(function(res){
-// 				if(res.success){
-// 					token = res.data.uploadToken;
-// 					qiniu.uploadInit({
-// 						token: token,
-// 						btnId: "uploadBtn",
-// 						containerId: "uploadContainer",
-// 						multi_selection: false,
-// 						showUploadProgress: function(up, file){
-// 							$(".upload-progress").css("width", parseInt(file.percent, 10) + "%");
-// 						},
-// 						fileAdd: function(file){
-// 							$(".upload-progress-wrap").show();
-// 						},
-// 						fileUploaded: function(up, url, key){
-// 							$(".upload-progress-wrap").hide().find(".upload-progress").css("width", 0);
-// 							loading.createLoading("上传中...");
-// 							uploadAvatar(url, key);
-// 						}
-// 					});
-// 				}else{
-// 					base.showMsg(res.msg || "token获取失败");
-// 				}
-// 			}, function(){
-// 				base.showMsg("token获取失败");
-// 			})
-// 	}
-
-// console.log(url, photo)
-// 	function uploadAvatar(url, photo){
-// 		Ajax.post("619063", {
-// 			json: {
-// 				"code": code,
-// 				"pic": photo
-// 			}
-// 		}).then(function(res){
-// 			loading.hideLoading();
-// 			if(!res.success){
-// 				base.showMsg(res.msg);
-// 			}else{
-// 				var html ;
-// 				html+= '<img src="'+url+'" class="wp100 center-img1" >'
-// 				$("#showAvatar").append(html)
-// 			}
-// 		}, function(){
-// 			loading.hideLoading();
-// 		});
-// 	}
-
 	function initUpload(){
 	    qiniu.getQiniuToken()
 	        .then(function(res){
@@ -212,7 +161,7 @@ define([
 	                    token: token,
 	                    btnId: "uploadBtn",
 	                    containerId: "uploadContainer",
-	                    multi_selection: true,
+                        multi_selection: true,
 	                    showUploadProgress: function(up, file){
 	                        // $(".upload-progress").css("width", parseInt(file.percent, 10) + "%");
 	                        $("#" + file.id).find(".write-progress-wrap").show()
@@ -251,7 +200,7 @@ define([
 	                    },
 	                    fileUploaded: function(up, url, key, file){
 	                        $("#" + file.id).find(".write-progress-wrap").hide()
-	                            .end().find(".center-img").attr("src", url )
+	                            .end().find(".center-img").attr("src", base.getImg2(key) )
 	                            .attr("data-src", key).removeClass("hp100 wp100");
 	                        var pic = $("#pic").val();
 	                        if(pic)
@@ -272,11 +221,9 @@ define([
 	function applyTravelNote(){
 	    loading.createLoading("上传中...");
 	    var data = $("#travelForm").serializeObject();
-	    data.code = code
-	    console.log(data)
+	    data.code = code;
 	    Ajax.post("619063", {
 	        json: data
-
 	    }).then(function(res){
 	        loading.hideLoading();
 	        if(res.success){
@@ -286,7 +233,7 @@ define([
 	        		base.showMsg("请上传施工图片");
 	        	}else{
 	        		base.showMsg(res.msg);
-	        	}  
+	        	}
 	        }
 	    }, function(){
 	        loading.hideLoading();

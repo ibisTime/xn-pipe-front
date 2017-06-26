@@ -1,7 +1,7 @@
 define([
     'app/util/ajax'
 ], function (Ajax) {
-    
+
     var swfUrl = __uri("../../lib/qiniu/Moxie.swf");
 
     return {
@@ -16,10 +16,10 @@ define([
 
             // 触发选择文件的按钮的父容器的id
             var containerId = option.containerId;
-            
+
             // var dropId = editor.id || (editor.attr && editor.attr('id')) || 'jsForm';
 
-            var multi_selection = option.multi_selection || true;
+            var multi_selection = option.multi_selection || false;
 
             // 创建上传对象
             var uploader = Qiniu.uploader({
@@ -40,19 +40,6 @@ define([
                 max_file_size: '100mb', //最大文件体积限制
                 flash_swf_url: swfUrl, //引入flash,相对路径
                 multi_selection: multi_selection,
-                filters: {
-                    mime_types: [
-                        //只允许上传图片文件 （注意，extensions中，逗号后面不要加空格）
-                        {
-                            title: "图片文件",
-                            extensions: "jpg,gif,png,bmp"
-                        }
-            //             , {
-                        //  title: '文件',
-                        //  extensions: "docx,doc,xls,xlsx,pdf"
-                        // }
-                    ]
-                },
                 max_retries: 3, //上传失败最大重试次数
                 // dragdrop: true, //开启可拖曳上传
                 // drop_element: dropId, //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传

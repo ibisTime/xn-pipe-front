@@ -139,7 +139,7 @@ define([
 
 			    			s+="<a href='demand-order-detail.html?code="+list[i].code+"' class='wp100 plr15 ba mt10 p-r hig140 bb'>";
 	                    	s+="<div class='inline_block order-img ptb19'><img src='"+PIC_PREFIX+dPic+THUMBNAIL_SUFFIX+"' ></div>";
-	                    	s+="<div class='inline_block  p-a order-box hp100  pt14 pr15'>";
+	                    	s+="<div class='inline_block  p-a order-box hp100  pt19 lh1_4 pr15'>";
 	                        s+="<div class='fs14 '>"+dName+"</div>";
 	                        s+="<div class='fs13 '>"+dSummary+"</div>";
 	                        s+="<div class='fs12 t_norwrap'>地点："+dAddress+"</div>";

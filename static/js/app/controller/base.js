@@ -542,7 +542,7 @@ define([
         goLogin: function(){
             loading.hideLoading();
             sessionStorage.setItem("l-return", location.pathname + location.search);
-            // login.addCont().showCont();
+            login.addCont().showCont();
             location.href = "../user/redirect.html";
         },
         confirm: function(msg) {
